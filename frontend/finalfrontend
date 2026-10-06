@@ -1,0 +1,2881 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>YojanaSetu | Government Opportunities Portal</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+
+        /* =========================
+           RESET
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Inter", sans-serif;
+            background: #f5f8fc;
+            color: #17324d;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button,
+        input {
+            font-family: inherit;
+        }
+
+        .container {
+            width: 92%;
+            max-width: 1250px;
+            margin: auto;
+        }
+
+
+        /* =========================
+           TOP GOVERNMENT BAR
+        ========================= */
+
+        .top-bar {
+            background: #063b6d;
+            color: white;
+            min-height: 42px;
+            display: flex;
+            align-items: center;
+            font-size: 13px;
+        }
+
+        .top-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .gov-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+        }
+
+        .gov-left i {
+            font-size: 23px;
+        }
+
+        .top-right {
+            display: flex;
+            gap: 18px;
+            align-items: center;
+        }
+
+        .top-right span {
+            cursor: pointer;
+        }
+
+        .top-right span:hover {
+            text-decoration: underline;
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        .navbar {
+            background: white;
+            height: 78px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.06);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ff8a00, #008f5a);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 23px;
+        }
+
+        .logo-text h1 {
+            font-size: 25px;
+            line-height: 1;
+            color: #083d70;
+            font-weight: 800;
+        }
+
+        .logo-text h1 span {
+            color: #ef7417;
+        }
+
+        .logo-text p {
+            font-size: 9px;
+            color: #537087;
+            margin-top: 4px;
+            font-weight: 600;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+
+        .nav-links a {
+            font-size: 14px;
+            font-weight: 600;
+            color: #173b5e;
+            padding: 29px 0;
+            position: relative;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #0874d1;
+        }
+
+        .nav-links a.active::after {
+            content: "";
+            position: absolute;
+            bottom: 18px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: #0874d1;
+            border-radius: 10px;
+        }
+
+        .login-btn {
+            border: none;
+            background: #073d70;
+            color: white;
+            padding: 11px 20px;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .login-btn:hover {
+            background: #095fa6;
+            transform: translateY(-2px);
+        }
+
+        .menu-btn {
+            display: none;
+            border: none;
+            background: none;
+            font-size: 25px;
+            color: #073d70;
+            cursor: pointer;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 430px;
+            position: relative;
+            overflow: hidden;
+            background:
+                linear-gradient(100deg,
+                rgba(232, 247, 255, 0.98) 0%,
+                rgba(230, 246, 255, 0.88) 48%,
+                rgba(255, 239, 218, 0.70) 100%);
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 480px;
+            height: 480px;
+            background: #d9f1ff;
+            border-radius: 50%;
+            right: -150px;
+            top: -180px;
+        }
+
+        .hero-content {
+            min-height: 430px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-text {
+            width: 52%;
+        }
+
+        .hero-text h2 {
+            font-size: clamp(38px, 5vw, 58px);
+            line-height: 1.08;
+            color: #063d72;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .hero-text h2 span {
+            color: #ef6f19;
+        }
+
+        .hero-text p {
+            max-width: 580px;
+            color: #315774;
+            font-size: 17px;
+            margin: 18px 0 25px;
+        }
+
+        .search-box {
+            display: flex;
+            max-width: 620px;
+            background: white;
+            padding: 5px;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(35, 87, 120, 0.15);
+        }
+
+        .search-box i {
+            display: flex;
+            align-items: center;
+            padding-left: 16px;
+            color: #71899c;
+        }
+
+        .search-box input {
+            flex: 1;
+            border: none;
+            outline: none;
+            padding: 14px;
+            font-size: 14px;
+        }
+
+        .search-box button {
+            border: none;
+            background: #0876d1;
+            color: white;
+            padding: 0 25px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 700;
+        }
+
+        .search-box button:hover {
+            background: #075da5;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .btn-primary,
+        .btn-outline {
+            padding: 12px 22px;
+            border-radius: 25px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            border: none;
+            color: white;
+            background: #f47718;
+        }
+
+        .btn-primary:hover {
+            background: #d96008;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            border: 2px solid #0876d1;
+            color: #075b9f;
+            background: white;
+        }
+
+        .btn-outline:hover {
+            background: #0876d1;
+            color: white;
+        }
+
+        .hero-image {
+            width: 43%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .india-card {
+            width: 400px;
+            height: 310px;
+            position: relative;
+        }
+
+        .india-circle {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            right: 10px;
+            top: 5px;
+            border-radius: 50%;
+            background: linear-gradient(145deg, #fff2df, #dff5e9);
+            box-shadow: 0 15px 40px rgba(27, 83, 105, 0.12);
+        }
+
+        .india-circle i {
+            position: absolute;
+            left: 65px;
+            top: 75px;
+            font-size: 150px;
+            color: #db8126;
+            opacity: 0.75;
+        }
+
+        .flag {
+            position: absolute;
+            width: 270px;
+            height: 100px;
+            right: 15px;
+            top: 30px;
+            border-radius: 5px;
+            overflow: hidden;
+            transform: rotate(-7deg);
+            box-shadow: 0 8px 18px rgba(0,0,0,0.13);
+        }
+
+        .flag div:nth-child(1) {
+            height: 33.33%;
+            background: #ff9933;
+        }
+
+        .flag div:nth-child(2) {
+            height: 33.33%;
+            background: white;
+            position: relative;
+        }
+
+        .flag div:nth-child(3) {
+            height: 33.33%;
+            background: #138808;
+        }
+
+        .chakra {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 32px;
+            height: 32px;
+            border: 3px solid #0757a1;
+            border-radius: 50%;
+        }
+
+        .students {
+            position: absolute;
+            bottom: 0;
+            right: 10px;
+            display: flex;
+            align-items: flex-end;
+            gap: 7px;
+        }
+
+        .person {
+            width: 48px;
+            height: 95px;
+            border-radius: 25px 25px 8px 8px;
+            position: relative;
+        }
+
+        .person::before {
+            content: "";
+            width: 31px;
+            height: 31px;
+            border-radius: 50%;
+            position: absolute;
+            top: -20px;
+            left: 8px;
+            background: #e2b38b;
+        }
+
+        .p1 { background: #f6a623; height: 110px; }
+        .p2 { background: #1976d2; height: 125px; }
+        .p3 { background: #e65151; height: 100px; }
+        .p4 { background: #008f65; height: 118px; }
+
+
+        /* =========================
+           STATS
+        ========================= */
+
+        .stats {
+            margin-top: -1px;
+            position: relative;
+            z-index: 5;
+        }
+
+        .stats-box {
+            background: white;
+            border-radius: 14px;
+            box-shadow: 0 8px 30px rgba(27, 67, 94, 0.10);
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            padding: 23px 10px;
+        }
+
+        .stat {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            border-right: 1px solid #dbe5ec;
+        }
+
+        .stat:last-child {
+            border-right: none;
+        }
+
+        .stat-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 21px;
+        }
+
+        .icon-blue {
+            background: #e3f2ff;
+            color: #0876d1;
+        }
+
+        .icon-green {
+            background: #e4f8e8;
+            color: #159447;
+        }
+
+        .icon-orange {
+            background: #fff0df;
+            color: #f47a18;
+        }
+
+        .icon-purple {
+            background: #eee8ff;
+            color: #6c4cd4;
+        }
+
+        .stat h3 {
+            font-size: 25px;
+            color: #073d70;
+        }
+
+        .stat p {
+            font-size: 12px;
+            color: #61788a;
+        }
+
+
+        /* =========================
+           COMMON SECTION
+        ========================= */
+
+        section {
+            padding: 60px 0;
+        }
+
+        .section-heading {
+            margin-bottom: 25px;
+        }
+
+        .section-heading h2 {
+            font-size: 30px;
+            color: #073d70;
+        }
+
+        .section-heading p {
+            color: #668092;
+            margin-top: 5px;
+        }
+
+
+        /* =========================
+           CATEGORIES
+        ========================= */
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 17px;
+        }
+
+        .category {
+            padding: 24px 20px;
+            min-height: 145px;
+            border-radius: 14px;
+            transition: 0.3s;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .category:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 12px 25px rgba(38, 79, 103, 0.13);
+        }
+
+        .category i {
+            font-size: 29px;
+            margin-bottom: 15px;
+        }
+
+        .category h3 {
+            font-size: 17px;
+            margin-bottom: 4px;
+        }
+
+        .category p {
+            font-size: 12px;
+        }
+
+        .category .arrow {
+            position: absolute;
+            right: 20px;
+            bottom: 18px;
+        }
+
+        .education {
+            background: #eee9ff;
+            color: #5741b9;
+        }
+
+        .finance {
+            background: #e4f9e5;
+            color: #13833e;
+        }
+
+        .jobs {
+            background: #fff0e3;
+            color: #dc6715;
+        }
+
+        .housing {
+            background: #e3f3ff;
+            color: #0873c9;
+        }
+
+        .farmer {
+            background: #ffe7f0;
+            color: #bf356c;
+        }
+
+        .women {
+            background: #e1f8f7;
+            color: #087d83;
+        }
+
+        .health {
+            background: #f0e8ff;
+            color: #6845ba;
+        }
+
+        .startup {
+            background: #ffe6e3;
+            color: #d44335;
+        }
+
+
+        /* =========================
+           HOW IT WORKS
+        ========================= */
+
+        .process-section {
+            background: linear-gradient(135deg, #eaf7ff, #f5f1ff);
+        }
+
+        .process {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 15px;
+            margin-top: 35px;
+        }
+
+        .process-step {
+            text-align: center;
+            position: relative;
+        }
+
+        .process-step:not(:last-child)::after {
+            content: "→";
+            position: absolute;
+            right: -16px;
+            top: 28px;
+            color: #7192ab;
+            font-size: 24px;
+            font-weight: 800;
+        }
+
+        .process-icon {
+            width: 60px;
+            height: 60px;
+            margin: auto;
+            border-radius: 50%;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 21px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.12);
+        }
+
+        .step-blue { background: #1679d2; }
+        .step-purple { background: #7049ca; }
+        .step-orange { background: #f17a1b; }
+        .step-green { background: #15934c; }
+        .step-indigo { background: #4b49d6; }
+
+        .process-step h3 {
+            margin-top: 12px;
+            color: #073d70;
+            font-size: 16px;
+        }
+
+        .process-step span {
+            color: #0876d1;
+            font-weight: 800;
+            font-size: 13px;
+        }
+
+        .process-step p {
+            font-size: 11px;
+            color: #668092;
+            margin-top: 5px;
+        }
+
+
+        /* =========================
+           SCHEMES
+        ========================= */
+
+        .schemes-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            margin-bottom: 22px;
+        }
+
+        .view-all {
+            color: #0876d1;
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .scheme-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+
+        .scheme-card {
+            background: white;
+            border-radius: 13px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(30, 72, 95, 0.10);
+            transition: 0.3s;
+        }
+
+        .scheme-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 28px rgba(30, 72, 95, 0.16);
+        }
+
+        .scheme-image {
+            height: 125px;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .scheme-image i {
+            font-size: 62px;
+            color: white;
+            opacity: 0.9;
+        }
+
+        .scheme-card:nth-child(1) .scheme-image {
+            background: linear-gradient(135deg, #6851ca, #8d72ef);
+        }
+
+        .scheme-card:nth-child(2) .scheme-image {
+            background: linear-gradient(135deg, #159044, #55b96b);
+        }
+
+        .scheme-card:nth-child(3) .scheme-image {
+            background: linear-gradient(135deg, #ec7217, #ffad51);
+        }
+
+        .scheme-card:nth-child(4) .scheme-image {
+            background: linear-gradient(135deg, #1476c8, #52a5e8);
+        }
+
+        .scheme-content {
+            padding: 18px;
+        }
+
+        .scheme-content h3 {
+            color: #073d70;
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .scheme-content p {
+            color: #6a7f8e;
+            font-size: 11px;
+            min-height: 35px;
+        }
+
+        .tags {
+            display: flex;
+            gap: 6px;
+            margin: 12px 0;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: #eef4f8;
+            color: #547086;
+            padding: 4px 8px;
+            border-radius: 20px;
+            font-size: 9px;
+            font-weight: 600;
+        }
+
+        .details-btn {
+            border: none;
+            background: #073d70;
+            color: white;
+            padding: 8px 13px;
+            border-radius: 6px;
+            font-size: 11px;
+            cursor: pointer;
+        }
+
+
+        /* =========================
+           GLANCE
+        ========================= */
+
+        .glance {
+            background: linear-gradient(90deg, #edf8ff, #f4efff);
+            border-radius: 15px;
+            padding: 24px;
+        }
+
+        .glance-content {
+            display: grid;
+            grid-template-columns: 1.5fr repeat(4, 1fr);
+            align-items: center;
+        }
+
+        .glance-intro {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .glance-icon {
+            width: 48px;
+            height: 48px;
+            background: white;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #0876d1;
+            font-size: 20px;
+        }
+
+        .glance h3 {
+            color: #073d70;
+            font-size: 16px;
+        }
+
+        .glance p {
+            font-size: 10px;
+            color: #718596;
+        }
+
+        .glance-stat {
+            text-align: center;
+            border-left: 1px solid #d4e1eb;
+        }
+
+        .glance-stat strong {
+            color: #0876d1;
+            font-size: 22px;
+        }
+
+        .glance-stat span {
+            display: block;
+            color: #668092;
+            font-size: 10px;
+        }
+
+
+        /* =========================
+           UPDATES
+        ========================= */
+
+        .updates-section {
+            padding-top: 30px;
+        }
+
+        .updates-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .updates-box {
+            background: white;
+            border-radius: 14px;
+            padding: 23px;
+            box-shadow: 0 5px 20px rgba(30, 72, 95, 0.08);
+        }
+
+        .updates-title {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        .updates-title h3 {
+            color: #073d70;
+        }
+
+        .updates-title a {
+            color: #0876d1;
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        .notice {
+            display: flex;
+            gap: 10px;
+            padding: 12px 0;
+            border-bottom: 1px solid #edf1f4;
+            align-items: center;
+        }
+
+        .notice:last-child {
+            border-bottom: none;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .notice p {
+            flex: 1;
+            font-size: 12px;
+            color: #38576c;
+        }
+
+        .notice small {
+            font-size: 9px;
+            color: #8a9ba7;
+            white-space: nowrap;
+        }
+
+
+        /* =========================
+           CTA
+        ========================= */
+
+        .cta {
+            background:
+                linear-gradient(100deg, #073d70, #0878b8);
+            border-radius: 16px;
+            padding: 30px 38px;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .cta::after {
+            content: "";
+            position: absolute;
+            width: 260px;
+            height: 260px;
+            border: 35px solid rgba(255,255,255,0.08);
+            border-radius: 50%;
+            right: 30px;
+            top: -100px;
+        }
+
+        .cta-text {
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta h2 {
+            font-size: 25px;
+            margin-bottom: 5px;
+        }
+
+        .cta p {
+            font-size: 13px;
+            opacity: 0.9;
+            max-width: 650px;
+        }
+
+        .cta button {
+            background: white;
+            color: #073d70;
+            border: none;
+            border-radius: 25px;
+            padding: 12px 22px;
+            font-weight: 800;
+            cursor: pointer;
+            position: relative;
+            z-index: 3;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            margin-top: 60px;
+            background: #052f57;
+            color: white;
+        }
+
+        .footer-main {
+            padding: 45px 0;
+            display: grid;
+            grid-template-columns: 1.5fr repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .footer-logo {
+            font-size: 25px;
+            font-weight: 800;
+        }
+
+        .footer-logo span {
+            color: #ff861d;
+        }
+
+        .footer-about p {
+            font-size: 11px;
+            color: #b7cbdc;
+            margin-top: 10px;
+            max-width: 280px;
+        }
+
+        footer h3 {
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .footer-links a {
+            font-size: 11px;
+            color: #b7cbdc;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .social {
+            display: flex;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .social a {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.12);
+            padding: 15px 0;
+            text-align: center;
+            font-size: 10px;
+            color: #9db6c9;
+        }
+
+
+        /* =========================
+           MODAL
+        ========================= */
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 3000;
+            inset: 0;
+            background: rgba(0,0,0,0.55);
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal.show {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            width: 100%;
+            max-width: 430px;
+            border-radius: 15px;
+            padding: 30px;
+            position: relative;
+            animation: popup 0.25s ease;
+        }
+
+        @keyframes popup {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .close-modal {
+            position: absolute;
+            right: 20px;
+            top: 15px;
+            border: none;
+            background: none;
+            font-size: 23px;
+            cursor: pointer;
+        }
+
+        .modal-content h2 {
+            color: #073d70;
+            margin-bottom: 8px;
+        }
+
+        .modal-content p {
+            color: #718596;
+            font-size: 13px;
+            margin-bottom: 20px;
+        }
+
+        .modal-input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #d6e1e9;
+            border-radius: 7px;
+            margin-bottom: 12px;
+            outline: none;
+        }
+
+        .modal-submit {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            background: #0876d1;
+            color: white;
+            border-radius: 7px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+
+        /* =========================
+           SEARCH RESULT
+        ========================= */
+
+        .search-message {
+            display: none;
+            margin-top: 15px;
+            background: white;
+            padding: 13px 17px;
+            border-radius: 8px;
+            color: #073d70;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            font-size: 13px;
+        }
+
+        .search-message.show {
+            display: block;
+        }
+
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 1050px) {
+
+            .nav-links {
+                gap: 15px;
+            }
+
+            .nav-links a {
+                font-size: 12px;
+            }
+
+            .category-grid,
+            .scheme-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero-text {
+                width: 58%;
+            }
+
+            .hero-image {
+                width: 40%;
+            }
+
+            .india-card {
+                transform: scale(0.8);
+            }
+        }
+
+
+        @media (max-width: 800px) {
+
+            .top-right {
+                display: none;
+            }
+
+            .navbar {
+                height: 70px;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: white;
+                padding: 20px;
+                flex-direction: column;
+                align-items: flex-start;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            }
+
+            .nav-links.show {
+                display: flex;
+            }
+
+            .nav-links a {
+                padding: 7px 0;
+            }
+
+            .nav-links a.active::after {
+                display: none;
+            }
+
+            .login-btn {
+                margin-top: 5px;
+            }
+
+            .hero-content {
+                padding: 50px 0;
+            }
+
+            .hero-text {
+                width: 100%;
+            }
+
+            .hero-image {
+                display: none;
+            }
+
+            .stats-box {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+
+            .stat:nth-child(2) {
+                border-right: none;
+            }
+
+            .stat:nth-child(1),
+            .stat:nth-child(2) {
+                border-bottom: 1px solid #dbe5ec;
+                padding-bottom: 15px;
+            }
+
+            .process {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .process-step:not(:last-child)::after {
+                content: "↓";
+                right: auto;
+                bottom: -28px;
+                top: auto;
+                left: 50%;
+            }
+
+            .glance-content {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+
+            .glance-intro {
+                grid-column: 1 / -1;
+            }
+
+            .glance-stat {
+                border-left: none;
+            }
+
+            .updates-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-main {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+
+        @media (max-width: 550px) {
+
+            .container {
+                width: 90%;
+            }
+
+            .logo-text h1 {
+                font-size: 20px;
+            }
+
+            .logo-icon {
+                width: 40px;
+                height: 40px;
+            }
+
+            .hero-text h2 {
+                font-size: 36px;
+            }
+
+            .hero-text p {
+                font-size: 14px;
+            }
+
+            .search-box {
+                flex-direction: column;
+                padding: 7px;
+            }
+
+            .search-box i {
+                display: none;
+            }
+
+            .search-box input {
+                padding: 13px;
+            }
+
+            .search-box button {
+                padding: 12px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .btn-primary,
+            .btn-outline {
+                justify-content: center;
+            }
+
+            .stats-box {
+                grid-template-columns: 1fr;
+            }
+
+            .stat {
+                border-right: none !important;
+                border-bottom: 1px solid #dbe5ec;
+                padding-bottom: 15px;
+            }
+
+            .stat:last-child {
+                border-bottom: none;
+            }
+
+            .category-grid,
+            .scheme-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-heading h2 {
+                font-size: 25px;
+            }
+
+            .schemes-header {
+                align-items: flex-start;
+                gap: 10px;
+                flex-direction: column;
+            }
+
+            .glance-content {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .cta {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+            }
+
+            .footer-main {
+                grid-template-columns: 1fr;
+            }
+
+            .top-bar {
+                font-size: 10px;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     GOVERNMENT TOP BAR
+===================================================== -->
+
+<div class="top-bar">
+
+    <div class="container top-content">
+
+        <div class="gov-left">
+            <i class="fa-solid fa-building-columns"></i>
+
+            <div>
+                Government of India
+                <br>
+                <small>Ministry of Electronics & Information Technology</small>
+            </div>
+        </div>
+
+        <div class="top-right">
+
+            <span>
+                <i class="fa-solid fa-universal-access"></i>
+                Accessibility
+            </span>
+
+            <span>|</span>
+
+            <span>हिन्दी</span>
+
+            <span>|</span>
+
+            <span>English</span>
+
+            <span>|</span>
+
+            <span>
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </span>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<nav class="navbar">
+
+    <div class="container nav-content">
+
+        <a href="#" class="logo">
+
+            <div class="logo-icon">
+                <i class="fa-solid fa-link"></i>
+            </div>
+
+            <div class="logo-text">
+
+                <h1>
+                    Yojana<span>Setu</span>
+                </h1>
+
+                <p>
+                    Connects You to a Better Tomorrow
+                </p>
+
+            </div>
+
+        </a>
+
+
+        <div class="nav-links" id="navLinks">
+
+            <a href="#home" class="active">
+                <i class="fa-solid fa-house"></i>
+                Home
+            </a>
+
+            <a href="#schemes">
+                Schemes
+            </a>
+
+            <a href="#categories">
+                Scholarships
+            </a>
+
+            <a href="#jobs">
+                Jobs
+            </a>
+
+            <a href="#internships">
+                Internships
+            </a>
+
+            <a href="#about">
+                About Us
+            </a>
+
+            <button class="login-btn" onclick="openLogin()">
+                <i class="fa-solid fa-user"></i>
+                Login / Register
+            </button>
+
+        </div>
+
+
+        <button class="menu-btn" onclick="toggleMenu()">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+
+    </div>
+
+</nav>
+
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero" id="home">
+
+    <div class="container hero-content">
+
+        <div class="hero-text">
+
+            <h2>
+                Discover Government
+                Opportunities
+                <span>Made For You</span>
+            </h2>
+
+            <p>
+                Explore government schemes, scholarships, jobs
+                and internships to build your future with
+                YojanaSetu.
+            </p>
+
+
+            <div class="search-box">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search schemes, scholarships, jobs, internships..."
+                >
+
+                <button onclick="searchWebsite()">
+                    Search
+                </button>
+
+            </div>
+
+
+            <div class="search-message" id="searchMessage"></div>
+
+
+            <div class="hero-buttons">
+
+                <button class="btn-primary"
+                        onclick="scrollToSection('schemes')">
+
+                    Explore Schemes
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </button>
+
+
+                <button class="btn-outline"
+                        onclick="scrollToSection('categories')">
+
+                    Find Opportunities
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- HERO ILLUSTRATION -->
+
+        <div class="hero-image">
+
+            <div class="india-card">
+
+                <div class="india-circle">
+
+                    <i class="fa-solid fa-landmark"></i>
+
+                </div>
+
+
+                <div class="flag">
+
+                    <div></div>
+
+                    <div>
+                        <div class="chakra"></div>
+                    </div>
+
+                    <div></div>
+
+                </div>
+
+
+                <div class="students">
+
+                    <div class="person p1"></div>
+                    <div class="person p2"></div>
+                    <div class="person p3"></div>
+                    <div class="person p4"></div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     STATS
+===================================================== -->
+
+<div class="stats">
+
+    <div class="container">
+
+        <div class="stats-box">
+
+            <div class="stat">
+
+                <div class="stat-icon icon-green">
+                    <i class="fa-solid fa-file-lines"></i>
+                </div>
+
+                <div>
+                    <h3>12,000+</h3>
+                    <p>Government Schemes</p>
+                </div>
+
+            </div>
+
+
+            <div class="stat">
+
+                <div class="stat-icon icon-blue">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                </div>
+
+                <div>
+                    <h3>5,000+</h3>
+                    <p>Scholarships</p>
+                </div>
+
+            </div>
+
+
+            <div class="stat">
+
+                <div class="stat-icon icon-orange">
+                    <i class="fa-solid fa-briefcase"></i>
+                </div>
+
+                <div>
+                    <h3>1,200+</h3>
+                    <p>Job Opportunities</p>
+                </div>
+
+            </div>
+
+
+            <div class="stat">
+
+                <div class="stat-icon icon-purple">
+                    <i class="fa-solid fa-users"></i>
+                </div>
+
+                <div>
+                    <h3>500+</h3>
+                    <p>Internships</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     CATEGORIES
+===================================================== -->
+
+<section id="categories">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <h2>
+                What are you looking for?
+            </h2>
+
+            <p>
+                Explore opportunities based on your needs and goals.
+            </p>
+
+        </div>
+
+
+        <div class="category-grid">
+
+
+            <div class="category education">
+
+                <i class="fa-solid fa-graduation-cap"></i>
+
+                <h3>Education</h3>
+
+                <p>
+                    Study today, lead tomorrow
+                </p>
+
+                <span class="arrow">
+                    →
+                </span>
+
+            </div>
+
+
+            <div class="category finance">
+
+                <i class="fa-solid fa-money-bill-transfer"></i>
+
+                <h3>Financial Support</h3>
+
+                <p>
+                    Secure your future
+                </p>
+
+                <span class="arrow">
+                    →
+                </span>
+
+            </div>
+
+
+            <div class="category jobs">
+
+                <i class="fa-solid fa-briefcase"></i>
+
+                <h3>Jobs</h3>
+
+                <p>
+                    Build your career
+                </p>
+
+                <span class="arrow">
+                    →
+                </span>
+
+            </div>
+
+
+            <div class="category housing">
+
+                <i class="fa-solid fa-house"></i>
+
+                <h3>Housing</h3>
+
+                <p>
+                    A home for a better tomorrow
+                </p>
+
+                <span class="arrow">
+                    →
+                </span>
+
+            </div>
+
+
+            <div class="category farmer">
+
+                <i class="fa-solid fa-seedling"></i>
+
+                <h3>Farmers</h3>
+
+                <p>
+                    Support for our backbone
+                </p>
+
+                <span class="arrow">
+                    →
+                </span>
+
+            </div>
+
+
+            <div class="category women">
+
+                <i class="fa-solid fa-person-dress"></i>
+
+                <h3>Women & Child</h3>
+
+                <p>
+                    Empower. Educate. Uplift.
+                </p>
+
+                <span class="arrow">
+                    →
+                </span>
+
+            </div>
+
+
+            <div class="category health">
+
+                <i class="fa-solid fa-heart-pulse"></i>
+
+                <h3>Health</h3>
+
+                <p>
+                    Good health, brighter future
+                </p>
+
+                <span class="arrow">
+                    →
+                </span>
+
+            </div>
+
+
+            <div class="category startup">
+
+                <i class="fa-solid fa-rocket"></i>
+
+                <h3>Startups & Innovation</h3>
+
+                <p>
+                    Turn ideas into impact
+                </p>
+
+                <span class="arrow">
+                    →
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     HOW YOJANASETU WORKS
+===================================================== -->
+
+<section class="process-section">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <h2>
+                How YojanaSetu Works
+            </h2>
+
+            <p>
+                A simple 5-step process to help you access government benefits.
+            </p>
+
+        </div>
+
+
+        <div class="process">
+
+
+            <div class="process-step">
+
+                <div class="process-icon step-blue">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+
+                <span>01</span>
+
+                <h3>Discover</h3>
+
+                <p>
+                    Find suitable schemes
+                    and opportunities.
+                </p>
+
+            </div>
+
+
+            <div class="process-step">
+
+                <div class="process-icon step-purple">
+                    <i class="fa-solid fa-book-open"></i>
+                </div>
+
+                <span>02</span>
+
+                <h3>Understand</h3>
+
+                <p>
+                    Check eligibility,
+                    benefits and details.
+                </p>
+
+            </div>
+
+
+            <div class="process-step">
+
+                <div class="process-icon step-orange">
+                    <i class="fa-solid fa-file-lines"></i>
+                </div>
+
+                <span>03</span>
+
+                <h3>Prepare</h3>
+
+                <p>
+                    Gather documents and
+                    complete requirements.
+                </p>
+
+            </div>
+
+
+            <div class="process-step">
+
+                <div class="process-icon step-green">
+                    <i class="fa-solid fa-file-signature"></i>
+                </div>
+
+                <span>04</span>
+
+                <h3>Apply</h3>
+
+                <p>
+                    Submit your application
+                    online or offline.
+                </p>
+
+            </div>
+
+
+            <div class="process-step">
+
+                <div class="process-icon step-indigo">
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+                </div>
+
+                <span>05</span>
+
+                <h3>Track</h3>
+
+                <p>
+                    Monitor your application
+                    status in real-time.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     POPULAR SCHEMES
+===================================================== -->
+
+<section id="schemes">
+
+    <div class="container">
+
+        <div class="schemes-header">
+
+            <div class="section-heading">
+
+                <h2>
+                    Popular Government Schemes
+                </h2>
+
+                <p>
+                    Explore some of the most beneficial schemes for you.
+                </p>
+
+            </div>
+
+            <a href="#" class="view-all">
+                View All Schemes →
+            </a>
+
+        </div>
+
+
+        <div class="scheme-grid">
+
+
+            <div class="scheme-card">
+
+                <div class="scheme-image">
+
+                    <i class="fa-solid fa-graduation-cap"></i>
+
+                </div>
+
+                <div class="scheme-content">
+
+                    <h3>
+                        PM Post Matric Scholarship
+                    </h3>
+
+                    <p>
+                        For students from SC, ST, OBC
+                        and Minority communities.
+                    </p>
+
+                    <div class="tags">
+
+                        <span class="tag">
+                            Education
+                        </span>
+
+                        <span class="tag">
+                            Financial Aid
+                        </span>
+
+                    </div>
+
+                    <button class="details-btn"
+                            onclick="showDetails('PM Post Matric Scholarship')">
+
+                        View Details →
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="scheme-card">
+
+                <div class="scheme-image">
+
+                    <i class="fa-solid fa-wheat-awn"></i>
+
+                </div>
+
+                <div class="scheme-content">
+
+                    <h3>
+                        PM-KISAN
+                    </h3>
+
+                    <p>
+                        Direct income support
+                        to eligible farmers.
+                    </p>
+
+                    <div class="tags">
+
+                        <span class="tag">
+                            Farmers
+                        </span>
+
+                        <span class="tag">
+                            Financial Aid
+                        </span>
+
+                    </div>
+
+                    <button class="details-btn"
+                            onclick="showDetails('PM-KISAN')">
+
+                        View Details →
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="scheme-card">
+
+                <div class="scheme-image">
+
+                    <i class="fa-solid fa-person-chalkboard"></i>
+
+                </div>
+
+                <div class="scheme-content">
+
+                    <h3>
+                        Skill India Mission
+                    </h3>
+
+                    <p>
+                        Skill training for
+                        better employment.
+                    </p>
+
+                    <div class="tags">
+
+                        <span class="tag">
+                            Employment
+                        </span>
+
+                        <span class="tag">
+                            Skill Development
+                        </span>
+
+                    </div>
+
+                    <button class="details-btn"
+                            onclick="showDetails('Skill India Mission')">
+
+                        View Details →
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="scheme-card">
+
+                <div class="scheme-image">
+
+                    <i class="fa-solid fa-award"></i>
+
+                </div>
+
+                <div class="scheme-content">
+
+                    <h3>
+                        National Scholarship Portal
+                    </h3>
+
+                    <p>
+                        Scholarships for
+                        eligible students.
+                    </p>
+
+                    <div class="tags">
+
+                        <span class="tag">
+                            Education
+                        </span>
+
+                        <span class="tag">
+                            Scholarship
+                        </span>
+
+                    </div>
+
+                    <button class="details-btn"
+                            onclick="showDetails('National Scholarship Portal')">
+
+                        View Details →
+                    </button>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     YOJANASETU AT A GLANCE
+===================================================== -->
+
+<section style="padding-top:0;">
+
+    <div class="container">
+
+        <div class="glance">
+
+            <div class="glance-content">
+
+
+                <div class="glance-intro">
+
+                    <div class="glance-icon">
+
+                        <i class="fa-solid fa-chart-column"></i>
+
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            YojanaSetu at a Glance
+                        </h3>
+
+                        <p>
+                            Real impact. A stronger India.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="glance-stat">
+
+                    <strong>500+</strong>
+
+                    <span>
+                        Schemes
+                    </span>
+
+                </div>
+
+
+                <div class="glance-stat">
+
+                    <strong>200+</strong>
+
+                    <span>
+                        Scholarships
+                    </span>
+
+                </div>
+
+
+                <div class="glance-stat">
+
+                    <strong>100+</strong>
+
+                    <span>
+                        Job Opportunities
+                    </span>
+
+                </div>
+
+
+                <div class="glance-stat">
+
+                    <strong>50K+</strong>
+
+                    <span>
+                        Happy Users
+                    </span>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     UPDATES + CTA
+===================================================== -->
+
+<section class="updates-section" id="about">
+
+    <div class="container">
+
+        <div class="updates-grid">
+
+
+            <!-- NOTICES -->
+
+            <div class="updates-box">
+
+                <div class="updates-title">
+
+                    <h3>
+                        <i class="fa-solid fa-bell"></i>
+                        Latest Updates & Notices
+                    </h3>
+
+                    <a href="#">
+                        View All →
+                    </a>
+
+                </div>
+
+
+                <div class="notice">
+
+                    <div class="dot"
+                         style="background:#f47718;">
+                    </div>
+
+                    <p>
+                        New scholarship applications are now open for 2026-27
+                    </p>
+
+                    <small>
+                        2 days ago
+                    </small>
+
+                </div>
+
+
+                <div class="notice">
+
+                    <div class="dot"
+                         style="background:#e64282;">
+                    </div>
+
+                    <p>
+                        PM-KISAN registration deadline extended
+                    </p>
+
+                    <small>
+                        5 days ago
+                    </small>
+
+                </div>
+
+
+                <div class="notice">
+
+                    <div class="dot"
+                         style="background:#714bd0;">
+                    </div>
+
+                    <p>
+                        New government internships available for freshers
+                    </p>
+
+                    <small>
+                        1 week ago
+                    </small>
+
+                </div>
+
+
+                <div class="notice">
+
+                    <div class="dot"
+                         style="background:#15934c;">
+                    </div>
+
+                    <p>
+                        Skill India training programs – Apply now!
+                    </p>
+
+                    <small>
+                        1 week ago
+                    </small>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- CTA -->
+
+            <div class="cta">
+
+                <div class="cta-text">
+
+                    <h2>
+                        From Farmers to Innovators
+                    </h2>
+
+                    <p>
+                        Every Indian Matters. YojanaSetu bridges the gap
+                        between government schemes and your dreams.
+                    </p>
+
+                </div>
+
+
+                <button onclick="scrollToSection('categories')">
+
+                    Explore Now
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </button>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <div class="container">
+
+        <div class="footer-main">
+
+
+            <div class="footer-about">
+
+                <div class="footer-logo">
+                    Yojana<span>Setu</span>
+                </div>
+
+                <p>
+                    Connecting citizens with government schemes,
+                    scholarships, jobs and opportunities for
+                    a better tomorrow.
+                </p>
+
+
+                <div class="social">
+
+                    <a href="#">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+
+                    <a href="#">
+                        <i class="fa-brands fa-x-twitter"></i>
+                    </a>
+
+                    <a href="#">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+
+                    <a href="#">
+                        <i class="fa-brands fa-youtube"></i>
+                    </a>
+
+                    <a href="#">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div>
+
+                <h3>
+                    Quick Links
+                </h3>
+
+                <div class="footer-links">
+
+                    <a href="#home">Home</a>
+                    <a href="#schemes">Schemes</a>
+                    <a href="#categories">Scholarships</a>
+                    <a href="#jobs">Jobs</a>
+
+                </div>
+
+            </div>
+
+
+            <div>
+
+                <h3>
+                    Important
+                </h3>
+
+                <div class="footer-links">
+
+                    <a href="#">
+                        Accessibility
+                    </a>
+
+                    <a href="#">
+                        Privacy Policy
+                    </a>
+
+                    <a href="#">
+                        Terms & Conditions
+                    </a>
+
+                    <a href="#">
+                        Disclaimer
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div>
+
+                <h3>
+                    Support
+                </h3>
+
+                <div class="footer-links">
+
+                    <a href="#">
+                        Help Center
+                    </a>
+
+                    <a href="#">
+                        Contact Us
+                    </a>
+
+                    <a href="#">
+                        FAQs
+                    </a>
+
+                    <a href="#">
+                        Feedback
+                    </a>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            © 2026 YojanaSetu. Government of India.
+            All rights reserved.
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+
+<!-- =====================================================
+     LOGIN MODAL
+===================================================== -->
+
+<div class="modal" id="loginModal">
+
+    <div class="modal-content">
+
+        <button class="close-modal"
+                onclick="closeLogin()">
+
+            &times;
+
+        </button>
+
+
+        <h2>
+            Welcome to YojanaSetu
+        </h2>
+
+        <p>
+            Login to save schemes and track your applications.
+        </p>
+
+
+        <input
+            type="email"
+            class="modal-input"
+            placeholder="Enter your email"
+        >
+
+
+        <input
+            type="password"
+            class="modal-input"
+            placeholder="Enter password"
+        >
+
+
+        <button class="modal-submit"
+                onclick="loginUser()">
+
+            Login
+
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+
+    /* =========================
+       MOBILE MENU
+    ========================= */
+
+    function toggleMenu() {
+
+        const nav = document.getElementById("navLinks");
+
+        nav.classList.toggle("show");
+
+    }
+
+
+    /* =========================
+       SMOOTH SCROLL
+    ========================= */
+
+    function scrollToSection(id) {
+
+        const element = document.getElementById(id);
+
+        if (element) {
+
+            element.scrollIntoView({
+                behavior: "smooth"
+            });
+
+        }
+
+    }
+
+
+    /* =========================
+       SEARCH
+    ========================= */
+
+    function searchWebsite() {
+
+        const input =
+            document.getElementById("searchInput");
+
+        const message =
+            document.getElementById("searchMessage");
+
+        const query =
+            input.value.trim();
+
+
+        if (query === "") {
+
+            message.innerHTML =
+                "⚠️ Please enter something to search.";
+
+            message.classList.add("show");
+
+            return;
+        }
+
+
+        message.innerHTML =
+            `🔎 Showing results for "<strong>${query}</strong>". More opportunities will appear here in the full version.`;
+
+        message.classList.add("show");
+
+    }
+
+
+    /* Search with Enter key */
+
+    document
+        .getElementById("searchInput")
+        .addEventListener("keydown", function(event) {
+
+            if (event.key === "Enter") {
+
+                searchWebsite();
+
+            }
+
+        });
+
+
+
+    /* =========================
+       LOGIN MODAL
+    ========================= */
+
+    function openLogin() {
+
+        document
+            .getElementById("loginModal")
+            .classList.add("show");
+
+    }
+
+
+    function closeLogin() {
+
+        document
+            .getElementById("loginModal")
+            .classList.remove("show");
+
+    }
+
+
+    function loginUser() {
+
+        alert(
+            "Demo Login Successful! In the real project, this will connect to your backend."
+        );
+
+        closeLogin();
+
+    }
+
+
+    /* Close modal when clicking outside */
+
+    window.addEventListener("click", function(event) {
+
+        const modal =
+            document.getElementById("loginModal");
+
+        if (event.target === modal) {
+
+            closeLogin();
+
+        }
+
+    });
+
+
+
+    /* =========================
+       SCHEME DETAILS
+    ========================= */
+
+    function showDetails(schemeName) {
+
+        alert(
+            schemeName +
+            "\n\nEligibility, benefits, documents and application details will be displayed here."
+        );
+
+    }
+
+
+
+    /* =========================
+       NAVBAR ACTIVE LINK
+    ========================= */
+
+    const sections =
+        document.querySelectorAll("section[id]");
+
+    const navItems =
+        document.querySelectorAll(".nav-links a");
+
+
+    window.addEventListener("scroll", function() {
+
+        let current = "";
+
+
+        sections.forEach(section => {
+
+            const sectionTop =
+                section.offsetTop - 120;
+
+            if (window.scrollY >= sectionTop) {
+
+                current =
+                    section.getAttribute("id");
+
+            }
+
+        });
+
+
+        navItems.forEach(link => {
+
+            link.classList.remove("active");
+
+            if (
+                link.getAttribute("href") ===
+                "#" + current
+            ) {
+
+                link.classList.add("active");
+
+            }
+
+        });
+
+    });
+
+
+
+    /* =========================
+       CLOSE MOBILE MENU
+    ========================= */
+
+    document.querySelectorAll(".nav-links a")
+        .forEach(link => {
+
+            link.addEventListener("click", function() {
+
+                document
+                    .getElementById("navLinks")
+                    .classList.remove("show");
+
+            });
+
+        });
+
+
+</script>
+
+</body>
+</html>
