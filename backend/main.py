@@ -1,23 +1,68 @@
-from schemes import schemes
-from matching import find_matches
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 
-name = input("Enter your name: ")
-age = int(input("Enter your age: "))
-income = int(input("Enter annual income: "))
-education = input("Enter education: ")
+from database import Base, engine
 
-print("\nEligible Schemes:")
+from routes.users import router as users_router
+from routes.schemes import router as schemes_router
+from routes.recommendations import (
+    router as recommendations_router
+)
 
-found = False
 
-for scheme in schemes:
-    if (scheme["min_age"] <= age and
-        income <= scheme["max_income"] and
-        (scheme["education"] == education or
-         scheme["education"] == "Any")):
+# Create database tables
+Base.metadata.create_all(
+    bind=engine
+)
 
-        print("-", scheme["name"])
-        found = True
 
-if not found:
-    print("No eligible scheme found.")
+# Create FastAPI application
+app = FastAPI(
+    title="YojanaSetu AI Backend",
+    description=(
+        "AI-powered government scheme discovery "
+        "and recommendation backend."
+    ),
+    version="1.0.0"
+)
+
+
+# Allow frontend connections
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"]
+)
+
+
+# Register routes
+app.include_router(
+    users_router
+)
+
+app.include_router(
+    schemes_router
+)
+
+app.include_router(
+    recommendations_router
+)
+
+
+@app.get("/")
+def home():
+
+    return {
+        "message": "YojanaSetu AI backend is running",
+        "status": "success"
+    }
+
+
+@app.get("/health")
+def health_check():
+
+    return {
+        "status": "healthy"
+    }
