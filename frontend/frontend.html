@@ -1,0 +1,2938 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Oppnexa | Government & Private Opportunities</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        /* RESET */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Inter", sans-serif;
+            background: #f5f8fc;
+            color: #17324d;
+            line-height: 1.6;
+        }
+
+        button,
+        input,
+        select {
+            font: inherit;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: 92%;
+            max-width: 1250px;
+            margin: auto;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        /* NAVBAR - ONLY HAMBURGER MENU */
+
+        .navbar {
+            height: 78px;
+            background: white;
+            display: flex;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 3px 15px rgba(0,0,0,.06);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand {
+            color: #083d70;
+            font-size: 29px;
+            font-weight: 800;
+            letter-spacing: -.8px;
+        }
+
+        .brand span,
+        .footer-logo span {
+            color: #ef7417;
+        }
+
+        .menu-btn {
+            border: 0;
+            background: transparent;
+            color: #073d70;
+            font-size: 27px;
+            padding: 6px;
+        }
+
+        .nav-links {
+            display: none;
+            position: absolute;
+            top: 70px;
+            right: 4%;
+            width: 250px;
+            background: white;
+            padding: 18px;
+            border-radius: 12px;
+            box-shadow: 0 12px 30px rgba(8,45,78,.16);
+            flex-direction: column;
+            gap: 7px;
+        }
+
+        .nav-links.show {
+            display: flex;
+        }
+
+        .nav-links a {
+            padding: 8px 5px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #173b5e;
+        }
+
+        .nav-links a:hover {
+            color: #0874d1;
+        }
+
+        .language-picker {
+            border-top: 1px solid #edf1f4;
+            padding-top: 12px;
+            margin-top: 5px;
+        }
+
+        .language-picker label {
+            display: block;
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .language-picker select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #d6e1e9;
+            border-radius: 8px;
+            background: white;
+        }
+
+        .login-btn {
+            width: 100%;
+            border: 0;
+            background: #073d70;
+            color: white;
+            padding: 11px;
+            border-radius: 25px;
+            font-weight: 700;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 420px;
+            background: linear-gradient(
+                100deg,
+                #e8f7ff 0%,
+                #e6f6ff 48%,
+                #ffefda 100%
+            );
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 450px;
+            height: 450px;
+            background: #d9f1ff;
+            border-radius: 50%;
+            right: -190px;
+            top: -210px;
+        }
+
+        .hero-content {
+            min-height: 420px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text {
+            max-width: 820px;
+            width: 100%;
+            padding: 45px 0;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            background: white;
+            color: #0876d1;
+            padding: 7px 13px;
+            border-radius: 25px;
+            font-size: 11px;
+            font-weight: 800;
+            margin-bottom: 18px;
+        }
+
+        .hero h1 {
+            color: #063d72;
+            font-size: clamp(36px, 5vw, 58px);
+            line-height: 1.1;
+            font-weight: 800;
+        }
+
+        .hero h1 span {
+            display: block;
+            color: #ef6f19;
+        }
+
+        .hero p {
+            max-width: 690px;
+            color: #315774;
+            margin: 18px 0 24px;
+            font-size: 15px;
+        }
+
+        .search-box {
+            display: flex;
+            max-width: 680px;
+            background: white;
+            padding: 5px;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(35,87,120,.15);
+        }
+
+        .search-box i {
+            display: flex;
+            align-items: center;
+            padding: 0 14px;
+            color: #71899c;
+        }
+
+        .search-box input {
+            flex: 1;
+            min-width: 0;
+            border: 0;
+            outline: 0;
+            padding: 13px 8px;
+            font-size: 13px;
+        }
+
+        .search-box button {
+            border: 0;
+            padding: 0 23px;
+            border-radius: 8px;
+            background: #0876d1;
+            color: white;
+            font-weight: 700;
+        }
+
+        .search-message {
+            display: none;
+            background: white;
+            padding: 12px 15px;
+            border-radius: 8px;
+            margin-top: 12px;
+            color: #073d70;
+            font-size: 12px;
+        }
+
+        .search-message.show {
+            display: block;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 13px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .btn-primary,
+        .btn-outline {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 22px;
+            border-radius: 25px;
+            font-weight: 700;
+            font-size: 13px;
+            transition: .25s;
+        }
+
+        .btn-primary {
+            border: 0;
+            background: #f47718;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #d96008;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: white;
+            border: 2px solid #0876d1;
+            color: #075b9f;
+        }
+
+        .btn-outline:hover {
+            background: #0876d1;
+            color: white;
+        }
+
+        /* QUICK FEATURES */
+
+        .stats {
+            position: relative;
+            margin-top: -1px;
+            z-index: 2;
+        }
+
+        .stats-box {
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            gap: 5px;
+            background: white;
+            padding: 23px 10px;
+            border-radius: 14px;
+            box-shadow: 0 8px 30px rgba(27,67,94,.10);
+        }
+
+        .stat {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 5px 9px;
+            border-right: 1px solid #dbe5ec;
+        }
+
+        .stat:last-child {
+            border-right: 0;
+        }
+
+        .stat-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 13px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 19px;
+        }
+
+        .icon-blue { background: #e3f2ff; color: #0876d1; }
+        .icon-green { background: #e4f8e8; color: #159447; }
+        .icon-orange { background: #fff0df; color: #f47a18; }
+        .icon-purple { background: #eee8ff; color: #6c4cd4; }
+
+        .stat h3 {
+            color: #073d70;
+            font-size: 13px;
+        }
+
+        .stat p {
+            color: #61788a;
+            font-size: 10px;
+        }
+
+        /* COMMON SECTIONS */
+
+        section {
+            padding: 55px 0;
+        }
+
+        .section-heading {
+            margin-bottom: 24px;
+        }
+
+        .section-heading h2 {
+            color: #073d70;
+            font-size: 29px;
+        }
+
+        .section-heading p {
+            margin-top: 5px;
+            color: #668092;
+            font-size: 13px;
+        }
+
+        /* CHOOSE YOUR SECTOR - ANIMATED CAPSULE */
+
+        .sector-section {
+            padding: 42px 0 34px;
+        }
+
+        .sector-section .section-heading {
+            text-align: center;
+            margin-bottom: 18px;
+        }
+
+        .sector-switch {
+            position: relative;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            width: min(100%, 440px);
+            height: 65px;
+            padding: 6px;
+            margin: 0 auto;
+            border-radius: 999px;
+            border: 1px solid #d7e5ef;
+            background: #e7f0f7;
+            box-shadow: inset 0 2px 5px rgba(27,67,94,.08);
+            overflow: hidden;
+        }
+
+        .sector-knob {
+            position: absolute;
+            top: 6px;
+            bottom: 6px;
+            left: 6px;
+            width: calc(50% - 6px);
+            border-radius: 999px;
+            background: linear-gradient(120deg,#0876d1,#075b9f);
+            box-shadow: 0 5px 13px rgba(8,91,159,.25);
+            transition: transform .42s cubic-bezier(.22,.8,.25,1),
+                        background .3s ease;
+            pointer-events: none;
+        }
+
+        .sector-switch.private-active .sector-knob {
+            transform: translateX(100%);
+            background: linear-gradient(120deg,#ff8a00,#e96811);
+        }
+
+        .sector-option {
+            position: relative;
+            z-index: 1;
+            border: 0;
+            border-radius: 999px;
+            background: transparent;
+            color: #315774;
+            font-size: 13px;
+            font-weight: 800;
+            padding: 8px 5px;
+        }
+
+        .sector-option.active {
+            color: white;
+        }
+
+        .sector-hint {
+            text-align: center;
+            margin-top: 10px;
+            color: #668092;
+            font-size: 11px;
+        }
+
+        /* CATEGORY BOXES */
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            gap: 17px;
+        }
+
+        .category {
+            border: 0;
+            text-align: left;
+            min-height: 145px;
+            padding: 23px 20px;
+            border-radius: 14px;
+            position: relative;
+            cursor: pointer;
+            transition: .25s;
+        }
+
+        .category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(38,79,103,.13);
+        }
+
+        .category i {
+            display: block;
+            font-size: 28px;
+            margin-bottom: 13px;
+        }
+
+        .category h3 {
+            font-size: 16px;
+            margin-bottom: 4px;
+        }
+
+        .category p {
+            font-size: 11px;
+        }
+
+        .category .arrow {
+            position: absolute;
+            right: 18px;
+            bottom: 15px;
+            font-size: 18px;
+        }
+
+        .education { background: #eee9ff; color: #5741b9; }
+        .finance { background: #e4f9e5; color: #13833e; }
+        .jobs { background: #fff0e3; color: #dc6715; }
+        .housing { background: #e3f3ff; color: #0873c9; }
+        .farmer { background: #ffe7f0; color: #bf356c; }
+        .women { background: #e1f8f7; color: #087d83; }
+        .health { background: #f0e8ff; color: #6845ba; }
+        .startup { background: #ffe6e3; color: #d44335; }
+
+        /* OPPORTUNITY LIST */
+
+        .opportunities-section {
+            display: none;
+        }
+
+        .opportunities-section.show {
+            display: block;
+        }
+
+        .opportunities-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 18px;
+            margin-bottom: 20px;
+        }
+
+        .opportunities-head .section-heading {
+            margin-bottom: 0;
+        }
+
+        .opportunity-count {
+            color: #668092;
+            font-size: 12px;
+            margin-top: 7px;
+        }
+
+        .toolbar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 18px 0 22px;
+        }
+
+        .toolbar select,
+        .clear-btn {
+            border: 1px solid #d6e1e9;
+            background: white;
+            padding: 10px 13px;
+            border-radius: 8px;
+            color: #315774;
+            font-size: 12px;
+        }
+
+        .scheme-grid {
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            gap: 18px;
+        }
+
+        .scheme-card {
+            min-width: 0;
+            background: white;
+            border-radius: 13px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(30,72,95,.10);
+            transition: .25s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .scheme-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 28px rgba(30,72,95,.16);
+        }
+
+        .scheme-image {
+            height: 115px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 52px;
+        }
+
+        .purple { background: linear-gradient(135deg,#6851ca,#8d72ef); }
+        .green { background: linear-gradient(135deg,#159044,#55b96b); }
+        .orange { background: linear-gradient(135deg,#ec7217,#ffad51); }
+        .blue { background: linear-gradient(135deg,#1476c8,#52a5e8); }
+        .teal { background: linear-gradient(135deg,#07817e,#51c3b6); }
+        .pink { background: linear-gradient(135deg,#bd477b,#ed8bb3); }
+
+        .scheme-content {
+            padding: 18px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .badge-row {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+            margin-bottom: 9px;
+        }
+
+        .badge {
+            padding: 4px 9px;
+            border-radius: 20px;
+            font-size: 9px;
+            font-weight: 800;
+            background: #e7f2ff;
+            color: #0876d1;
+        }
+
+        .badge.private {
+            background: #fff0df;
+            color: #c65c10;
+        }
+
+        .badge.type {
+            background: #eff3f7;
+            color: #547086;
+        }
+
+        .scheme-content h3 {
+            color: #073d70;
+            font-size: 15px;
+            margin-bottom: 7px;
+            line-height: 1.45;
+        }
+
+        .scheme-content p {
+            color: #6a7f8e;
+            font-size: 11px;
+            margin-bottom: 12px;
+            flex: 1;
+        }
+
+        .tags {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+            margin: 8px 0 14px;
+        }
+
+        .tag {
+            background: #eef4f8;
+            color: #547086;
+            padding: 4px 8px;
+            border-radius: 20px;
+            font-size: 9px;
+            font-weight: 600;
+        }
+
+        .details-btn {
+            align-self: flex-start;
+            border: 0;
+            background: #073d70;
+            color: white;
+            padding: 9px 13px;
+            border-radius: 6px;
+            font-size: 11px;
+        }
+
+        .empty-state {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            color: #668092;
+            grid-column: 1 / -1;
+        }
+
+        /* PROFILE FORM */
+
+        .profile-section {
+            background: #f5f8fc;
+        }
+
+        .profile-card {
+            background: white;
+            padding: 28px;
+            border-radius: 14px;
+            box-shadow: 0 5px 22px rgba(30,72,95,.08);
+        }
+
+        .profile-grid {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 17px;
+        }
+
+        .profile-field {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .profile-field label {
+            color: #173b5e;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .profile-field input,
+        .profile-field select {
+            width: 100%;
+            min-width: 0;
+            padding: 11px 12px;
+            border: 1px solid #d6e1e9;
+            border-radius: 8px;
+            outline: 0;
+            color: #315774;
+            background: white;
+            font-size: 12px;
+        }
+
+        .profile-actions {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .profile-status {
+            display: none;
+            margin-top: 15px;
+            padding: 11px 13px;
+            border-radius: 8px;
+            font-size: 12px;
+            background: #eef8ff;
+            color: #315774;
+        }
+
+        .profile-status.show {
+            display: block;
+        }
+
+        .personalized-results {
+            display: none;
+            margin-top: 28px;
+        }
+
+        .personalized-results.show {
+            display: block;
+        }
+
+        .personalized-results h3 {
+            color: #073d70;
+            font-size: 21px;
+        }
+
+        .privacy-hint {
+            margin-top: 13px;
+            color: #718596;
+            font-size: 10px;
+        }
+
+        .match-pill {
+            display: inline-block;
+            margin-bottom: 9px;
+            border-radius: 20px;
+            padding: 4px 8px;
+            font-size: 10px;
+            font-weight: 800;
+            color: #087d52;
+            background: #e5f8ed;
+        }
+
+        /* LATEST UPDATES - ONE LINE PER NOTICE */
+
+        .updates-section {
+            background: #f5f8fc;
+        }
+
+        .updates-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .updates-box {
+            background: white;
+            border-radius: 14px;
+            padding: 23px;
+            box-shadow: 0 5px 20px rgba(30,72,95,.08);
+        }
+
+        .updates-title {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .updates-title h3 {
+            color: #073d70;
+            font-size: 17px;
+        }
+
+        .updates-title i {
+            color: #0876d1;
+            margin-right: 6px;
+        }
+
+        .notice {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 13px 0;
+            border-bottom: 1px solid #edf1f4;
+        }
+
+        .notice:last-child {
+            border-bottom: 0;
+        }
+
+        .notice-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .notice-content {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .notice-content p {
+            color: #38576c;
+            font-size: 11px;
+            font-weight: 600;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .notice-link {
+            color: #0876d1;
+            font-size: 11px;
+            font-weight: 800;
+            white-space: nowrap;
+        }
+
+        .notice-link:hover {
+            text-decoration: underline;
+        }
+
+        .updates-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin: 0 0 17px;
+        }
+
+        .updates-status {
+            color: #718596;
+            font-size: 11px;
+        }
+
+        .refresh-btn,
+        .enable-notifications {
+            border: 0;
+            border-radius: 8px;
+            background: #073d70;
+            color: white;
+            padding: 9px 13px;
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        .notification-panel {
+            background: white;
+            padding: 18px 20px;
+            border: 1px solid #e5edf3;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+
+        .notification-panel-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .notification-panel h3 {
+            color: #073d70;
+            font-size: 15px;
+        }
+
+        .notification-panel p {
+            color: #718596;
+            font-size: 11px;
+        }
+
+        .reminder-list {
+            margin-top: 10px;
+        }
+
+        /* ABOUT & DISCLAIMER */
+
+        .about-box {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr;
+            gap: 22px;
+        }
+
+        .about-card {
+            background: white;
+            padding: 25px;
+            border-radius: 14px;
+            box-shadow: 0 5px 20px rgba(30,72,95,.07);
+        }
+
+        .about-card h3 {
+            color: #073d70;
+            margin-bottom: 8px;
+            font-size: 18px;
+        }
+
+        .about-card p {
+            color: #668092;
+            font-size: 12px;
+        }
+
+        .disclaimer {
+            margin-top: 15px;
+            border-left: 4px solid #f47718;
+            background: #fff7ed;
+            padding: 13px 15px;
+            border-radius: 7px;
+            color: #79502d;
+            font-size: 10px;
+        }
+
+        /* FOOTER */
+
+        footer {
+            margin-top: 35px;
+            background: #052f57;
+            color: white;
+        }
+
+        .footer-main {
+            padding: 42px 0;
+            display: grid;
+            grid-template-columns: 1.5fr repeat(3,1fr);
+            gap: 35px;
+        }
+
+        .footer-logo {
+            font-size: 25px;
+            font-weight: 800;
+        }
+
+        .footer-about p {
+            font-size: 11px;
+            color: #b7cbdc;
+            margin-top: 10px;
+            max-width: 290px;
+        }
+
+        footer h3 {
+            font-size: 14px;
+            margin-bottom: 13px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .footer-links a {
+            font-size: 11px;
+            color: #b7cbdc;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,.12);
+            padding: 15px 0;
+            text-align: center;
+            font-size: 10px;
+            color: #9db6c9;
+        }
+
+        /* MODALS */
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 3000;
+            inset: 0;
+            background: rgba(0,0,0,.55);
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal.show {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            width: 100%;
+            max-width: 620px;
+            max-height: 88vh;
+            overflow-y: auto;
+            border-radius: 15px;
+            padding: 28px;
+            position: relative;
+        }
+
+        .close-modal {
+            position: absolute;
+            right: 17px;
+            top: 12px;
+            border: 0;
+            background: none;
+            font-size: 27px;
+            color: #587184;
+        }
+
+        .modal-content h2 {
+            color: #073d70;
+            padding-right: 30px;
+            margin-bottom: 8px;
+        }
+
+        .modal-subtitle {
+            color: #718596;
+            font-size: 12px;
+            margin-bottom: 15px;
+        }
+
+        .detail-block {
+            border-top: 1px solid #edf1f4;
+            padding: 13px 0;
+        }
+
+        .detail-block h4 {
+            color: #073d70;
+            font-size: 13px;
+            margin-bottom: 5px;
+        }
+
+        .detail-block p,
+        .detail-block li {
+            color: #5d7486;
+            font-size: 12px;
+        }
+
+        .detail-block ul {
+            padding-left: 18px;
+        }
+
+        .source-link {
+            display: inline-flex;
+            gap: 8px;
+            margin-top: 10px;
+            align-items: center;
+            background: #073d70;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 7px;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 1050px) {
+            .category-grid,
+            .scheme-grid {
+                grid-template-columns: repeat(2,1fr);
+            }
+
+            .stat {
+                justify-content: flex-start;
+            }
+        }
+
+        @media (max-width: 800px) {
+            .stats-box {
+                grid-template-columns: repeat(2,1fr);
+                gap: 18px;
+            }
+
+            .stat:nth-child(2) {
+                border-right: 0;
+            }
+
+            .sector-grid,
+            .about-box,
+            .updates-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .profile-grid {
+                grid-template-columns: repeat(2,1fr);
+            }
+
+            .footer-main {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 550px) {
+            .container {
+                width: 90%;
+            }
+
+            .brand {
+                font-size: 24px;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 14px;
+            }
+
+            .search-box {
+                flex-direction: column;
+                padding: 7px;
+            }
+
+            .search-box i {
+                display: none;
+            }
+
+            .search-box input {
+                padding: 13px;
+            }
+
+            .search-box button {
+                padding: 12px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .stats-box,
+            .category-grid,
+            .scheme-grid,
+            .profile-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stat {
+                border-right: 0;
+                border-bottom: 1px solid #dbe5ec;
+                padding-bottom: 15px;
+            }
+
+            .stat:last-child {
+                border-bottom: 0;
+            }
+
+            .section-heading h2 {
+                font-size: 25px;
+            }
+
+            .sector-switch {
+                height: 59px;
+            }
+
+            .sector-option {
+                font-size: 11px;
+            }
+
+            .footer-main {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-content {
+                padding: 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <nav class="navbar">
+        <div class="container nav-content">
+
+            <a class="brand" href="#home">Opp<span>nexa</span></a>
+
+            <div class="nav-links" id="navLinks">
+
+                <a href="#home" data-en="Home" data-hi="होम">Home</a>
+
+                <a href="#sectors" data-en="Choose Your Sector" data-hi="अपना सेक्टर चुनें">Choose Your Sector</a>
+
+                <a href="#categories" data-en="Categories" data-hi="श्रेणियाँ">Categories</a>
+
+                <a href="#profile" data-en="Personalized Finder" data-hi="अपने लिए अवसर खोजें">Personalized Finder</a>
+
+                <a href="#updates" data-en="Latest Updates & Notices" data-hi="नवीनतम अपडेट और सूचनाएँ">Latest Updates & Notices</a>
+
+                <a href="#about" data-en="About Us" data-hi="हमारे बारे में">About Us</a>
+
+                <div class="language-picker">
+                    <label for="languageSelect">Language / भाषा</label>
+                    <select id="languageSelect">
+                        <option value="en">English</option>
+                        <option value="hi">हिन्दी (Hindi)</option>
+                    </select>
+                </div>
+
+                <button class="login-btn" onclick="openLogin()">
+                    <i class="fa-solid fa-user"></i>
+                    <span data-en="Login / Register" data-hi="लॉगिन / रजिस्टर">Login / Register</span>
+                </button>
+
+            </div>
+
+            <button class="menu-btn" id="menuButton" onclick="toggleMenu()" aria-label="Open menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+        </div>
+    </nav>
+
+
+    <!-- HERO -->
+
+    <section class="hero" id="home">
+        <div class="container hero-content">
+
+            <div class="hero-text">
+
+                <div class="eyebrow" data-en="GOVERNMENT + PRIVATE OPPORTUNITIES" data-hi="सरकारी + निजी क्षेत्र के अवसर">
+                    GOVERNMENT + PRIVATE OPPORTUNITIES
+                </div>
+
+                <h1 data-en="Discover Opportunities" data-hi="अवसर खोजें">
+                    Discover Opportunities
+                    <span data-en="Made For You" data-hi="आपके लिए">Made For You</span>
+                </h1>
+
+                <p data-en="Explore government schemes, healthcare, education, railway recruitment, private-sector jobs, scholarships and internships — all in one place."
+                   data-hi="सरकारी योजनाएँ, स्वास्थ्य सेवाएँ, शिक्षा, रेलवे भर्ती, निजी नौकरियाँ, स्कॉलरशिप और इंटर्नशिप — सब एक ही जगह खोजें।">
+                    Explore government schemes, healthcare, education, railway recruitment, private-sector jobs, scholarships and internships — all in one place.
+                </p>
+
+                <div class="search-box">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                    <input type="search" id="searchInput"
+                           placeholder="Search healthcare, education, railways, jobs, internships..."
+                           aria-label="Search opportunities">
+
+                    <button onclick="searchWebsite()" data-en="Search" data-hi="खोजें">Search</button>
+                </div>
+
+                <div class="search-message" id="searchMessage" role="status"></div>
+
+                <div class="hero-buttons">
+                    <button class="btn-primary" onclick="scrollToSection('sectors')">
+                        <span data-en="Choose Sector" data-hi="सेक्टर चुनें">Choose Sector</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+
+                    <button class="btn-outline" onclick="scrollToSection('categories')">
+                        <span data-en="Explore Categories" data-hi="श्रेणियाँ देखें">Explore Categories</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- QUICK FEATURES -->
+
+    <div class="stats">
+        <div class="container">
+            <div class="stats-box">
+
+                <div class="stat">
+                    <div class="stat-icon icon-green"><i class="fa-solid fa-landmark"></i></div>
+                    <div>
+                        <h3>Government</h3>
+                        <p>Schemes & public opportunities</p>
+                    </div>
+                </div>
+
+                <div class="stat">
+                    <div class="stat-icon icon-blue"><i class="fa-solid fa-building"></i></div>
+                    <div>
+                        <h3>Private Sector</h3>
+                        <p>Company roles & programs</p>
+                    </div>
+                </div>
+
+                <div class="stat">
+                    <div class="stat-icon icon-orange"><i class="fa-solid fa-graduation-cap"></i></div>
+                    <div>
+                        <h3>Scholarship</h3>
+                        <p>Education support</p>
+                    </div>
+                </div>
+
+                <div class="stat">
+                    <div class="stat-icon icon-purple"><i class="fa-solid fa-briefcase"></i></div>
+                    <div>
+                        <h3>Careers</h3>
+                        <p>Jobs & internships</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- CHOOSE YOUR SECTOR -->
+
+    <section class="sector-section" id="sectors">
+        <div class="container">
+
+            <div class="section-heading">
+                <h2 data-en="Choose Your Sector" data-hi="अपना सेक्टर चुनें">Choose Your Sector</h2>
+
+                <p data-en="Move the capsule between Government and Private to explore relevant opportunities."
+                   data-hi="सरकारी या निजी सेक्टर चुनें और उससे जुड़े अवसर देखें।">
+                    Move the capsule between Government and Private to explore relevant opportunities.
+                </p>
+            </div>
+
+            <div class="sector-switch" id="sectorSwitch">
+
+                <span class="sector-knob"></span>
+
+                <button class="sector-option active" id="governmentSector"
+                        onclick="selectSector('Government')">
+                    <i class="fa-solid fa-landmark"></i>
+                    Government
+                </button>
+
+                <button class="sector-option" id="privateSector"
+                        onclick="selectSector('Private')">
+                    <i class="fa-solid fa-building"></i>
+                    Private Sector
+                </button>
+
+            </div>
+
+            <p class="sector-hint" id="sectorHint">Government opportunities selected</p>
+
+        </div>
+    </section>
+
+
+    <!-- CATEGORY BOXES -->
+
+    <section id="categories">
+        <div class="container">
+
+            <div class="section-heading">
+                <h2 data-en="What Are You Looking For?" data-hi="आप क्या खोज रहे हैं?">
+                    What Are You Looking For?
+                </h2>
+
+                <p data-en="Choose a category to see relevant opportunities in your selected sector."
+                   data-hi="अपने चुने हुए सेक्टर में अवसर देखने के लिए श्रेणी चुनें।">
+                    Choose a category to see relevant opportunities in your selected sector.
+                </p>
+            </div>
+
+            <div class="category-grid">
+
+                <button class="category health" onclick="filterByCategory('Healthcare')">
+                    <i class="fa-solid fa-heart-pulse"></i>
+                    <h3 data-en="Healthcare" data-hi="स्वास्थ्य सेवाएँ">Healthcare</h3>
+                    <p>Healthcare schemes, hospitals and careers</p>
+                    <span class="arrow">→</span>
+                </button>
+
+                <button class="category education" onclick="filterByCategory('Scholarship')">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    <h3 data-en="Scholarship" data-hi="स्कॉलरशिप">Scholarship</h3>
+                    <span class="arrow">→</span>
+                </button>
+
+                <button class="category jobs" onclick="filterByCategory('Railways')">
+                    <i class="fa-solid fa-train"></i>
+                    <h3 data-en="Railways" data-hi="रेलवे">Railways</h3>
+                    <p>Railway recruitment and related careers</p>
+                    <span class="arrow">→</span>
+                </button>
+
+                <button class="category finance" onclick="filterByCategory('Schemes')">
+                    <i class="fa-solid fa-file-lines"></i>
+                    <h3 data-en="Government Schemes" data-hi="सरकारी योजनाएँ">Government Schemes</h3>
+                    <span class="arrow">→</span>
+                </button>
+
+                <button class="category housing" onclick="filterByCategory('Jobs')">
+                    <i class="fa-solid fa-briefcase"></i>
+                    <h3 data-en="Jobs" data-hi="नौकरियाँ">Jobs</h3>
+                    <p>Government vacancies and private careers</p>
+                    <span class="arrow">→</span>
+                </button>
+
+                <button class="category women" onclick="filterByCategory('Internships')">
+                    <i class="fa-solid fa-laptop-code"></i>
+                    <h3 data-en="Internships" data-hi="इंटर्नशिप">Internships</h3>
+                    <span class="arrow">→</span>
+                </button>
+
+                <button class="category farmer" onclick="filterByCategory('Financial Support')">
+                    <i class="fa-solid fa-hand-holding-dollar"></i>
+                    <h3 data-en="Financial Support" data-hi="वित्तीय सहायता">Financial Support</h3>
+                    <span class="arrow">→</span>
+                </button>
+
+                <button class="category startup" onclick="filterByCategory('Skills & Startups')">
+                    <i class="fa-solid fa-rocket"></i>
+                    <h3 data-en="Skills & Startups" data-hi="स्किल्स और स्टार्टअप">Skills & Startups</h3>
+                    <span class="arrow">→</span>
+                </button>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- PERSONALIZED PROFILE -->
+
+    <section class="profile-section" id="profile">
+        <div class="container">
+
+            <div class="section-heading">
+                <h2 data-en="Find Opportunities Relevant to You"
+                    data-hi="अपने लिए उपयुक्त अवसर खोजें">
+                    Find Opportunities Relevant to You
+                </h2>
+
+                <p data-en="Enter your details to get a sorted list of opportunities matching your profile."
+                   data-hi="अपने विवरण भरें और अपने प्रोफाइल से मेल खाते अवसर देखें।">
+                    Enter your details to get a sorted list of opportunities matching your profile.
+                </p>
+            </div>
+
+            <div class="profile-card">
+
+                <form id="profileForm">
+
+                    <div class="profile-grid">
+
+                        <div class="profile-field">
+                            <label for="profileName">Name / नाम</label>
+                            <input id="profileName" type="text" placeholder="Enter your name" required>
+                        </div>
+
+                        <div class="profile-field">
+                            <label for="profileAge">Age / उम्र</label>
+                            <input id="profileAge" type="number" min="1" max="120" placeholder="Age in years" required>
+                        </div>
+
+                        <div class="profile-field">
+                            <label for="profileGender">Gender / लिंग</label>
+                            <select id="profileGender" required>
+                                <option value="">Select gender</option>
+                                <option>Female</option>
+                                <option>Male</option>
+                                <option>Non-binary</option>
+                                <option>Prefer not to say</option>
+                            </select>
+                        </div>
+
+                        <div class="profile-field">
+                            <label for="profileQualification">Qualification / योग्यता</label>
+                            <select id="profileQualification" required>
+                                <option value="">Select qualification</option>
+                                <option>Below 10th</option>
+                                <option>10th</option>
+                                <option>12th</option>
+                                <option>Diploma</option>
+                                <option>Undergraduate</option>
+                                <option>B.Tech</option>
+                                <option>Graduate</option>
+                                <option>Postgraduate</option>
+                                <option>PhD</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+
+                        <div class="profile-field">
+                            <label for="profilePercentage">Percentage / अंक (%)</label>
+                            <input id="profilePercentage" type="number" min="0" max="100" step="0.01" placeholder="e.g. 82.5">
+                        </div>
+
+                        <div class="profile-field">
+                            <label for="profileState">State / राज्य</label>
+                            <input id="profileState" type="text" placeholder="e.g. Uttar Pradesh" required>
+                        </div>
+
+                        <div class="profile-field">
+                            <label for="profileIncome">Annual Family Income (₹)</label>
+                            <input id="profileIncome" type="number" min="0" placeholder="Optional">
+                        </div>
+
+                        <div class="profile-field">
+                            <label for="profileOccupation">Current Status</label>
+                            <select id="profileOccupation" required>
+                                <option value="">Select status</option>
+                                <option>School Student</option>
+                                <option>College Student</option>
+                                <option>Fresher</option>
+                                <option>Job Seeker</option>
+                                <option>Employed</option>
+                                <option>Self-employed</option>
+                                <option>Farmer</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+
+                        <div class="profile-field">
+                            <label for="profilePreferredSector">Preferred Sector</label>
+                            <select id="profilePreferredSector">
+                                <option value="All">Government + Private</option>
+                                <option value="Government">Government only</option>
+                                <option value="Private">Private only</option>
+                            </select>
+                        </div>
+
+                        <div class="profile-field">
+                            <label for="profileCategory">Category (optional)</label>
+                            <select id="profileCategory">
+                                <option value="">Prefer not to specify</option>
+                                <option>General</option>
+                                <option>OBC</option>
+                                <option>SC</option>
+                                <option>ST</option>
+                                <option>EWS</option>
+                                <option>Minority</option>
+                                <option>PwD</option>
+                            </select>
+                        </div>
+
+                        <div class="profile-field">
+                            <label for="profileGoal">Main Interest</label>
+                            <select id="profileGoal">
+                                <option value="All">All opportunities</option>
+                                <option value="Scholarship">Scholarship</option>
+                                <option value="Healthcare">Healthcare</option>
+                                <option value="Railways">Railways</option>
+                                <option value="Jobs">Jobs</option>
+                                <option value="Internships">Internships</option>
+                                <option value="Financial Support">Financial Support</option>
+                                <option value="Skills & Startups">Skills & Startups</option>
+                            </select>
+                        </div>
+
+                        <div class="profile-field">
+                            <label for="profileInterests">Skills / Interests</label>
+                            <input id="profileInterests" type="text" placeholder="e.g. biology, coding, nursing">
+                        </div>
+
+                    </div>
+
+                    <div class="profile-actions">
+                        <button type="submit" class="btn-primary">
+                            <i class="fa-solid fa-wand-magic-sparkles"></i>
+                            <span data-en="Find My Matches" data-hi="मेरे लिए अवसर खोजें">Find My Matches</span>
+                        </button>
+
+                        <button type="button" class="clear-btn" id="clearProfileButton">
+                            Clear profile
+                        </button>
+                    </div>
+
+                    <p class="privacy-hint">
+                        This demo matches your profile in this browser. Always verify eligibility on the original source.
+                    </p>
+
+                </form>
+
+                <div class="profile-status" id="profileStatus" role="status"></div>
+
+                <div class="personalized-results" id="personalizedResults">
+                    <h3>Your Opportunity Matches</h3>
+                    <p id="personalizedSummary"></p>
+                    <div class="scheme-grid" id="personalizedGrid"></div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- OPPORTUNITIES -->
+
+    <section class="opportunities-section" id="opportunities">
+        <div class="container">
+
+            <div class="opportunities-head">
+                <div class="section-heading">
+                    <h2 id="opportunityHeading">Government Opportunities</h2>
+                    <p id="opportunityDescription">Explore opportunities and open a card for more information.</p>
+                    <div class="opportunity-count" id="opportunityCount"></div>
+                </div>
+            </div>
+
+            <div class="toolbar">
+
+                <select id="typeFilter" aria-label="Filter opportunity type">
+                    <option value="All">All opportunity types</option>
+                    <option value="Scheme">Schemes / Benefits</option>
+                    <option value="Job">Jobs</option>
+                    <option value="Internship">Internships</option>
+                    <option value="Scholarship">Scholarship</option>
+                    <option value="Training">Training / Skills</option>
+                </select>
+
+                <button class="clear-btn" onclick="clearFilters()">
+                    <i class="fa-solid fa-rotate-left"></i>
+                    Show All Opportunities
+                </button>
+
+            </div>
+
+            <div class="scheme-grid" id="schemeGrid"></div>
+
+            <div class="disclaimer">
+                Opportunity matches are guidance only. Check the latest eligibility rules, documents and deadlines on the original official or employer website before applying.
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- LATEST UPDATES & NOTICES -->
+
+    <section class="updates-section" id="updates">
+        <div class="container">
+
+            <div class="section-heading">
+                <h2>Latest Updates & Notices</h2>
+                <p>Short notices with a link to the relevant source.</p>
+            </div>
+
+            <div class="notification-panel">
+
+                <div class="notification-panel-head">
+                    <div>
+                        <h3><i class="fa-solid fa-bell"></i> Deadline Reminders & Alerts</h3>
+                        <p id="notificationStatus">Enable browser notifications to see alerts while this page is open.</p>
+                    </div>
+
+                    <button class="enable-notifications" id="enableNotificationsButton">
+                        <i class="fa-regular fa-bell"></i>
+                        Enable Notifications
+                    </button>
+                </div>
+
+                <div class="reminder-list" id="deadlineReminders">
+                    <p class="privacy-hint">Deadline alerts will appear when dated notices are available from the update source.</p>
+                </div>
+
+            </div>
+
+            <div class="updates-controls">
+                <span class="updates-status" id="updatesStatus">
+                    Showing official source portals. Verify dates on the source page.
+                </span>
+
+                <button class="refresh-btn" id="refreshUpdatesButton">
+                    <i class="fa-solid fa-rotate"></i>
+                    Refresh Updates
+                </button>
+            </div>
+
+            <div class="updates-grid">
+
+                <div class="updates-box">
+                    <div class="updates-title">
+                        <h3><i class="fa-solid fa-landmark"></i> Government Updates</h3>
+                    </div>
+
+                    <div class="notice">
+                        <span class="notice-dot" style="background:#f47718"></span>
+                        <div class="notice-content">
+                            <p>UP Scholarship: Check current application schedule and date extensions</p>
+                        </div>
+                        <a class="notice-link" href="https://scholarship.up.gov.in/" target="_blank" rel="noopener noreferrer">Open ↗</a>
+                    </div>
+
+                    <div class="notice">
+                        <span class="notice-dot" style="background:#0876d1"></span>
+                        <div class="notice-content">
+                            <p>NEET UG: Check official exam dates and announcements</p>
+                        </div>
+                        <a class="notice-link" href="https://neet.nta.nic.in/" target="_blank" rel="noopener noreferrer">Open ↗</a>
+                    </div>
+
+                    <div class="notice">
+                        <span class="notice-dot" style="background:#159447"></span>
+                        <div class="notice-content">
+                            <p>Railways: Check latest recruitment notifications and deadlines</p>
+                        </div>
+                        <a class="notice-link" href="https://indianrailways.gov.in/" target="_blank" rel="noopener noreferrer">Open ↗</a>
+                    </div>
+
+                    <div class="notice">
+                        <span class="notice-dot" style="background:#714bd0"></span>
+                        <div class="notice-content">
+                            <p>SSC: Check latest examination schedules and recruitment notices</p>
+                        </div>
+                        <a class="notice-link" href="https://ssc.gov.in/" target="_blank" rel="noopener noreferrer">Open ↗</a>
+                    </div>
+                </div>
+
+
+                <div class="updates-box">
+                    <div class="updates-title">
+                        <h3><i class="fa-solid fa-building"></i> Private Sector Updates</h3>
+                    </div>
+
+                    <div class="notice">
+                        <span class="notice-dot" style="background:#f47718"></span>
+                        <div class="notice-content">
+                            <p>Private jobs: Check latest openings and application dates</p>
+                        </div>
+                        <a class="notice-link" href="https://www.naukri.com/" target="_blank" rel="noopener noreferrer">Open ↗</a>
+                    </div>
+
+                    <div class="notice">
+                        <span class="notice-dot" style="background:#0876d1"></span>
+                        <div class="notice-content">
+                            <p>Internships: Check new openings and upcoming deadlines</p>
+                        </div>
+                        <a class="notice-link" href="https://internshala.com/internships/" target="_blank" rel="noopener noreferrer">Open ↗</a>
+                    </div>
+
+                    <div class="notice">
+                        <span class="notice-dot" style="background:#159447"></span>
+                        <div class="notice-content">
+                            <p>Private scholarships: Check current student funding opportunities</p>
+                        </div>
+                        <a class="notice-link" href="https://www.buddy4study.com/" target="_blank" rel="noopener noreferrer">Open ↗</a>
+                    </div>
+
+                    <div class="notice">
+                        <span class="notice-dot" style="background:#714bd0"></span>
+                        <div class="notice-content">
+                            <p>Private careers: Check company job listings and hiring updates</p>
+                        </div>
+                        <a class="notice-link" href="https://www.linkedin.com/jobs/" target="_blank" rel="noopener noreferrer">Open ↗</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="disclaimer">
+                These links open source portals; they are not verified announcements that a particular date has changed. Automatic live notices need a connected backend update feed.
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ABOUT -->
+
+    <section id="about">
+        <div class="container">
+
+            <div class="about-box">
+
+                <div class="about-card">
+                    <h3>About Oppnexa</h3>
+                    <p>
+                        Oppnexa brings government support programs and private-sector opportunities together, so people can explore schemes, healthcare support, education, railways, jobs, scholarships, internships and skill-development opportunities from one place.
+                    </p>
+
+                    <div class="disclaimer">
+                        Oppnexa is an opportunity-discovery platform, not a government authority or employer. Always confirm final eligibility, application requirements and deadlines with the original source.
+                    </div>
+                </div>
+
+                <div class="about-card">
+                    <h3>Explore Your Options</h3>
+                    <p>
+                        Choose Government or Private above, select a category, or fill in your profile to see a list of potentially relevant opportunities.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+        <div class="container">
+
+            <div class="footer-main">
+
+                <div class="footer-about">
+                    <div class="footer-logo">Opp<span>nexa</span></div>
+                    <p>
+                        Connecting people with government schemes, private careers, education, healthcare and opportunities for a better tomorrow.
+                    </p>
+                </div>
+
+                <div>
+                    <h3>Quick Links</h3>
+                    <div class="footer-links">
+                        <a href="#home">Home</a>
+                        <a href="#sectors">Choose Your Sector</a>
+                        <a href="#categories">Categories</a>
+                        <a href="#opportunities">Opportunities</a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3>Explore</h3>
+                    <div class="footer-links">
+                        <a href="#categories" onclick="filterByCategory('Healthcare')">Healthcare</a>
+                        <a href="#categories" onclick="filterByCategory('Railways')">Railways</a>
+                        <a href="#categories" onclick="filterByCategory('Scholarship')">Scholarship</a>
+                        <a href="#categories" onclick="filterByCategory('Internships')">Internships</a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3>Important</h3>
+                    <div class="footer-links">
+                        <a href="#about">About Oppnexa</a>
+                        <a href="#about">Disclaimer</a>
+                        <a href="#updates">Official Updates</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+                © 2026 Oppnexa. Government & Private Opportunity Discovery Platform.
+            </div>
+
+        </div>
+    </footer>
+
+
+    <!-- DETAILS MODAL -->
+
+    <div class="modal" id="detailModal" onclick="closeModalOnBackdrop(event,'detailModal')">
+        <div class="modal-content">
+
+            <button class="close-modal" onclick="closeModal('detailModal')">&times;</button>
+
+            <h2 id="detailTitle">Opportunity details</h2>
+            <div class="modal-subtitle" id="detailSubtitle"></div>
+            <div id="detailBody"></div>
+
+            <a class="source-link" id="detailSource" href="#" target="_blank" rel="noopener noreferrer">
+                Visit source <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+
+        </div>
+    </div>
+
+
+    <!-- LOGIN PREVIEW -->
+
+    <div class="modal" id="loginModal" onclick="closeModalOnBackdrop(event,'loginModal')">
+        <div class="modal-content">
+
+            <button class="close-modal" onclick="closeModal('loginModal')">&times;</button>
+
+            <h2>Welcome to Oppnexa</h2>
+            <p class="modal-subtitle">Login functionality will be connected separately.</p>
+
+            <input class="modal-input" type="email" placeholder="Enter your email">
+            <input class="modal-input" type="password" placeholder="Enter password">
+
+            <button class="modal-submit" onclick="loginUser()">Continue</button>
+
+        </div>
+    </div>
+
+
+    <script>
+        /* =====================================================
+           OPPORTUNITY DATA
+           These are starter records and source links, not live vacancies.
+        ===================================================== */
+
+        const opportunities = [
+            {
+                id: 1,
+                sector: "Government",
+                type: "Scholarship",
+                category: "Scholarship",
+                title: "Government Scholarship Opportunities",
+                icon: "fa-graduation-cap",
+                color: "purple",
+                description: "Explore central and state scholarship programmes for eligible students.",
+                eligibility: "Eligibility, marks, family income and category rules vary by programme.",
+                benefits: ["Education funding opportunities", "Compare programme requirements"],
+                documents: ["Check the specific scheme for marksheets, income certificate and identity documents."],
+                deadline: "Check the latest notice from the scholarship provider.",
+                source: "National Scholarship Portal",
+                url: "https://scholarships.gov.in/",
+                tags: ["Education", "Financial Support"],
+                qualifications: ["10th", "12th", "Diploma", "Undergraduate", "B.Tech", "Graduate", "Postgraduate", "PhD"]
+            },
+            {
+                id: 2,
+                sector: "Government",
+                type: "Scheme",
+                category: "Healthcare",
+                title: "Government Healthcare Support",
+                icon: "fa-heart-pulse",
+                color: "green",
+                description: "Explore public healthcare services and eligible health-benefit programmes.",
+                eligibility: "Eligibility and benefits depend on the specific healthcare programme.",
+                benefits: ["Find public healthcare information", "Review programme benefits"],
+                documents: ["Use the source portal to confirm required records and eligibility."],
+                deadline: "Varies by programme.",
+                source: "Ministry of Health and Family Welfare",
+                url: "https://mohfw.gov.in/",
+                tags: ["Healthcare", "Schemes"],
+                qualifications: []
+            },
+            {
+                id: 3,
+                sector: "Government",
+                type: "Job",
+                category: "Railways",
+                title: "Railway Recruitment Information",
+                icon: "fa-train",
+                color: "orange",
+                description: "Find official railway recruitment notices and post-wise information.",
+                eligibility: "Age, qualification, examination and selection criteria depend on each recruitment notice.",
+                benefits: ["Explore railway recruitment notices", "Review post-wise eligibility"],
+                documents: ["Follow the original notice for required certificates and application documents."],
+                deadline: "Check the current recruitment notice.",
+                source: "Indian Railways",
+                url: "https://indianrailways.gov.in/",
+                tags: ["Railways", "Jobs"],
+                qualifications: ["10th", "12th", "Diploma", "Undergraduate", "B.Tech", "Graduate"]
+            },
+            {
+                id: 4,
+                sector: "Government",
+                type: "Job",
+                category: "Jobs",
+                title: "Government Job Search",
+                icon: "fa-briefcase",
+                color: "blue",
+                description: "Explore job listings and career services through the National Career Service portal.",
+                eligibility: "Every vacancy has its own age, education, experience and selection criteria.",
+                benefits: ["Search job opportunities", "Explore career guidance services"],
+                documents: ["Follow the individual vacancy notice."],
+                deadline: "Varies by vacancy.",
+                source: "National Career Service",
+                url: "https://www.ncs.gov.in/",
+                tags: ["Jobs"],
+                qualifications: ["10th", "12th", "Diploma", "Undergraduate", "B.Tech", "Graduate", "Postgraduate", "PhD"]
+            },
+            {
+                id: 5,
+                sector: "Government",
+                type: "Internship",
+                category: "Internships",
+                title: "Government Internship Opportunities",
+                icon: "fa-laptop-file",
+                color: "teal",
+                description: "Explore public-sector training and internship notices from government organisations.",
+                eligibility: "Eligibility and duration depend on the organisation and specific programme.",
+                benefits: ["Practical learning", "Workplace exposure"],
+                documents: ["Check the relevant notice for identity and education documents."],
+                deadline: "Check the current programme listing.",
+                source: "MyGov",
+                url: "https://www.mygov.in/",
+                tags: ["Internships", "Training"],
+                qualifications: ["Undergraduate", "B.Tech", "Graduate", "Postgraduate", "PhD"]
+            },
+            {
+                id: 6,
+                sector: "Government",
+                type: "Scheme",
+                category: "Financial Support",
+                title: "Government Financial Assistance",
+                icon: "fa-hand-holding-dollar",
+                color: "green",
+                description: "Explore government assistance and welfare programme information.",
+                eligibility: "Income, category, residence and other criteria differ by programme.",
+                benefits: ["Find possible assistance programmes", "Review application instructions"],
+                documents: ["Check each programme's official document checklist."],
+                deadline: "Varies by programme.",
+                source: "National Portal of India",
+                url: "https://www.india.gov.in/",
+                tags: ["Financial Support", "Schemes"],
+                qualifications: []
+            },
+            {
+                id: 7,
+                sector: "Government",
+                type: "Training",
+                category: "Skills & Startups",
+                title: "Skill Development Opportunities",
+                icon: "fa-certificate",
+                color: "pink",
+                description: "Explore training and skill development options through public programmes.",
+                eligibility: "Entry criteria depend on the particular course and provider.",
+                benefits: ["Skill development", "Career preparation"],
+                documents: ["Use the programme portal for the current application requirements."],
+                deadline: "Check the programme listing.",
+                source: "Skill India Digital",
+                url: "https://www.skillindiadigital.gov.in/",
+                tags: ["Skills & Startups", "Training"],
+                qualifications: ["10th", "12th", "Diploma", "Undergraduate", "B.Tech", "Graduate"]
+            },
+            {
+                id: 8,
+                sector: "Private",
+                type: "Job",
+                category: "Jobs",
+                title: "Private IT & Software Careers",
+                icon: "fa-laptop-code",
+                color: "blue",
+                description: "Explore private-sector technology roles in development, data, testing and support.",
+                eligibility: "Qualifications and skills depend on the individual employer and vacancy.",
+                benefits: ["Browse career roles", "Compare requirements"],
+                documents: ["Follow the employer's job listing."],
+                deadline: "Depends on the opening.",
+                source: "Naukri",
+                url: "https://www.naukri.com/",
+                tags: ["Jobs", "Technology"],
+                qualifications: ["Diploma", "Undergraduate", "B.Tech", "Graduate", "Postgraduate"]
+            },
+            {
+                id: 9,
+                sector: "Private",
+                type: "Job",
+                category: "Healthcare",
+                title: "Private Healthcare Careers",
+                icon: "fa-user-doctor",
+                color: "teal",
+                description: "Explore hospital, diagnostics, healthcare technology and healthcare support roles.",
+                eligibility: "Clinical positions may require recognised qualifications or registration.",
+                benefits: ["Explore healthcare careers", "Review role requirements"],
+                documents: ["Check the employer's listing for qualification and registration requirements."],
+                deadline: "Depends on the employer and vacancy.",
+                source: "LinkedIn Jobs",
+                url: "https://www.linkedin.com/jobs/",
+                tags: ["Healthcare", "Jobs"],
+                qualifications: ["Diploma", "Undergraduate", "B.Tech", "Graduate", "Postgraduate", "PhD"]
+            },
+            {
+                id: 10,
+                sector: "Private",
+                type: "Internship",
+                category: "Internships",
+                title: "Private-Sector Internships",
+                icon: "fa-laptop-file",
+                color: "orange",
+                description: "Explore internships in technology, marketing, design, finance, research and operations.",
+                eligibility: "Student status, skills, duration and marks requirements vary by listing.",
+                benefits: ["Practical experience", "Build professional skills"],
+                documents: ["Resume and additional items requested by the employer."],
+                deadline: "Check each listing.",
+                source: "Internshala",
+                url: "https://internshala.com/internships/",
+                tags: ["Internships", "Private"],
+                qualifications: ["Undergraduate", "B.Tech", "Graduate", "Postgraduate"]
+            },
+            {
+                id: 11,
+                sector: "Private",
+                type: "Job",
+                category: "Jobs",
+                title: "Graduate & Fresher Hiring",
+                icon: "fa-user-tie",
+                color: "green",
+                description: "Explore entry-level, graduate trainee and fresher roles from private companies.",
+                eligibility: "Degree, graduation year, marks and skills vary by opening.",
+                benefits: ["Explore fresher roles", "Compare requirements"],
+                documents: ["Resume and educational details requested by the employer."],
+                deadline: "Varies by employer.",
+                source: "Naukri Fresher Jobs",
+                url: "https://www.naukri.com/fresher-jobs",
+                tags: ["Jobs", "Freshers"],
+                qualifications: ["Undergraduate", "B.Tech", "Graduate", "Postgraduate"]
+            },
+            {
+                id: 12,
+                sector: "Private",
+                type: "Scholarship",
+                category: "Scholarship",
+                title: "Private Scholarships & Student Grants",
+                icon: "fa-award",
+                color: "purple",
+                description: "Explore scholarships and grants offered by private trusts and organisations.",
+                eligibility: "Provider criteria may involve marks, course, income and location.",
+                benefits: ["Explore student funding", "Review provider requirements"],
+                documents: ["Follow the specific provider's checklist."],
+                deadline: "Each scholarship has its own schedule.",
+                source: "Buddy4Study",
+                url: "https://www.buddy4study.com/",
+                tags: ["Scholarship", "Education"],
+                qualifications: ["10th", "12th", "Diploma", "Undergraduate", "B.Tech", "Graduate", "Postgraduate"]
+            },
+            {
+                id: 13,
+                sector: "Private",
+                type: "Training",
+                category: "Skills & Startups",
+                title: "Private Skill & Certification Programs",
+                icon: "fa-certificate",
+                color: "pink",
+                description: "Explore private training and certification programmes for job-related skills.",
+                eligibility: "Course entry criteria, costs and certificate recognition vary by provider.",
+                benefits: ["Develop skills", "Compare learning options"],
+                documents: ["Check prerequisites and fees with the provider."],
+                deadline: "Check the provider's current page.",
+                source: "Coursera",
+                url: "https://www.coursera.org/",
+                tags: ["Training", "Skills"],
+                qualifications: ["12th", "Diploma", "Undergraduate", "B.Tech", "Graduate", "Postgraduate"]
+            },
+            {
+                id: 14,
+                sector: "Private",
+                type: "Job",
+                category: "Railways",
+                title: "Private Rail & Transport Careers",
+                icon: "fa-train-subway",
+                color: "orange",
+                description: "Explore private-sector roles in metro, transport, logistics and infrastructure.",
+                eligibility: "Criteria vary by role and employer.",
+                benefits: ["Explore rail and transport careers", "Review job requirements"],
+                documents: ["Follow the employer's vacancy instructions."],
+                deadline: "Depends on the live vacancy.",
+                source: "LinkedIn Jobs",
+                url: "https://www.linkedin.com/jobs/",
+                tags: ["Railways", "Jobs"],
+                qualifications: ["Diploma", "Undergraduate", "B.Tech", "Graduate"]
+            }
+        ];
+
+
+        /* APP STATE */
+
+        let selectedSector = "Government";
+        let selectedCategory = null;
+        let searchQuery = "";
+        let currentLanguage = "en";
+
+
+        /* HAMBURGER MENU */
+
+        function toggleMenu() {
+            const nav = document.getElementById("navLinks");
+            const button = document.getElementById("menuButton");
+
+            nav.classList.toggle("show");
+
+            button.setAttribute(
+                "aria-expanded",
+                nav.classList.contains("show")
+            );
+        }
+
+
+        document.querySelectorAll("#navLinks a").forEach(link => {
+            link.addEventListener("click", () => {
+                document.getElementById("navLinks").classList.remove("show");
+                document.getElementById("menuButton").setAttribute("aria-expanded", "false");
+            });
+        });
+
+
+        /* SMOOTH SCROLL */
+
+        function scrollToSection(id) {
+            const element = document.getElementById(id);
+
+            if (element) {
+                element.scrollIntoView({ behavior: "smooth" });
+            }
+        }
+
+
+        /* SECTOR CAPSULE */
+
+        function selectSector(sector) {
+            selectedSector = sector;
+            selectedCategory = null;
+            searchQuery = "";
+
+            document.getElementById("searchInput").value = "";
+
+            const switcher = document.getElementById("sectorSwitch");
+            const government = document.getElementById("governmentSector");
+            const private = document.getElementById("privateSector");
+            const hint = document.getElementById("sectorHint");
+
+            switcher.classList.toggle("private-active", sector === "Private");
+
+            government.classList.toggle("active", sector === "Government");
+            private.classList.toggle("active", sector === "Private");
+
+            government.setAttribute("aria-pressed", sector === "Government");
+            private.setAttribute("aria-pressed", sector === "Private");
+
+            hint.textContent = sector + " opportunities selected";
+
+            document.getElementById("typeFilter").value = "All";
+
+            renderOpportunities();
+
+            scrollToSection("categories");
+        }
+
+
+        /* CATEGORY FILTER */
+
+        function filterByCategory(category) {
+            selectedCategory = category;
+            searchQuery = "";
+
+            document.getElementById("searchInput").value = "";
+            document.getElementById("typeFilter").value = "All";
+
+            renderOpportunities();
+            scrollToSection("opportunities");
+        }
+
+
+        /* SEARCH */
+
+        function searchWebsite() {
+            const input = document.getElementById("searchInput");
+            const message = document.getElementById("searchMessage");
+
+            searchQuery = input.value.trim().toLowerCase();
+            selectedCategory = null;
+
+            if (!searchQuery) {
+                message.textContent = "Please enter a search term.";
+                message.classList.add("show");
+                return;
+            }
+
+            message.textContent = "Searching opportunities for: " + input.value.trim();
+            message.classList.add("show");
+
+            renderOpportunities();
+            scrollToSection("opportunities");
+        }
+
+
+        document.getElementById("searchInput").addEventListener("keydown", event => {
+            if (event.key === "Enter") {
+                searchWebsite();
+            }
+        });
+
+
+        /* OPPORTUNITY RENDERING */
+
+        function renderOpportunities() {
+            const section = document.getElementById("opportunities");
+            const grid = document.getElementById("schemeGrid");
+            const heading = document.getElementById("opportunityHeading");
+            const description = document.getElementById("opportunityDescription");
+            const count = document.getElementById("opportunityCount");
+            const selectedType = document.getElementById("typeFilter").value;
+
+            let list = opportunities.filter(item => {
+                const matchesSector = item.sector === selectedSector;
+                const matchesCategory = !selectedCategory ||
+                    item.category === selectedCategory ||
+                    item.tags.includes(selectedCategory);
+
+                const matchesType = selectedType === "All" || item.type === selectedType;
+
+                const searchable = [
+                    item.title,
+                    item.description,
+                    item.category,
+                    item.sector,
+                    item.type,
+                    ...item.tags
+                ].join(" ").toLowerCase();
+
+                const matchesSearch = !searchQuery || searchable.includes(searchQuery);
+
+                return matchesSector && matchesCategory && matchesType && matchesSearch;
+            });
+
+            section.classList.add("show");
+
+            heading.textContent =
+                (searchQuery ? "Search Results" : selectedCategory || selectedSector + " Opportunities");
+
+            description.textContent = searchQuery
+                ? "Opportunities matching your search."
+                : "Open a card to view details and visit the original source.";
+
+            count.textContent = list.length + " opportunity record(s) shown";
+
+            grid.innerHTML = "";
+
+            if (list.length === 0) {
+                grid.innerHTML = `
+                    <div class="empty-state">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <h3>No opportunities found</h3>
+                        <p>Try another category, search term or sector.</p>
+                    </div>`;
+                return;
+            }
+
+            list.forEach(item => {
+                grid.appendChild(createOpportunityCard(item));
+            });
+        }
+
+
+        function createOpportunityCard(item) {
+            const card = document.createElement("article");
+            card.className = "scheme-card";
+
+            card.innerHTML = `
+                <div class="scheme-image ${item.color}">
+                    <i class="fa-solid ${item.icon}"></i>
+                </div>
+
+                <div class="scheme-content">
+
+                    <div class="badge-row">
+                        <span class="badge ${item.sector === "Private" ? "private" : ""}">
+                            ${escapeHTML(item.sector)}
+                        </span>
+                        <span class="badge type">${escapeHTML(item.type)}</span>
+                    </div>
+
+                    <h3>${escapeHTML(item.title)}</h3>
+
+                    <p>${escapeHTML(item.description)}</p>
+
+                    <div class="tags">
+                        ${item.tags.map(tag =>
+                            `<span class="tag">${escapeHTML(tag)}</span>`
+                        ).join("")}
+                    </div>
+
+                    <button class="details-btn" type="button">
+                        View Details →
+                    </button>
+
+                </div>
+            `;
+
+            card.querySelector(".details-btn").addEventListener("click", () => {
+                showDetails(item);
+            });
+
+            return card;
+        }
+
+
+        function clearFilters() {
+            selectedCategory = null;
+            searchQuery = "";
+            document.getElementById("searchInput").value = "";
+            document.getElementById("typeFilter").value = "All";
+            document.getElementById("searchMessage").classList.remove("show");
+
+            renderOpportunities();
+        }
+
+
+        document.getElementById("typeFilter").addEventListener("change", renderOpportunities);
+
+
+        /* OPPORTUNITY DETAILS MODAL */
+
+        function showDetails(item) {
+            document.getElementById("detailTitle").textContent = item.title;
+
+            document.getElementById("detailSubtitle").textContent =
+                item.sector + " • " + item.type + " • " + item.category;
+
+            const body = document.getElementById("detailBody");
+
+            body.innerHTML = `
+                <div class="detail-block">
+                    <h4>Description</h4>
+                    <p>${escapeHTML(item.description)}</p>
+                </div>
+
+                <div class="detail-block">
+                    <h4>Eligibility</h4>
+                    <p>${escapeHTML(item.eligibility)}</p>
+                </div>
+
+                <div class="detail-block">
+                    <h4>Benefits / Information</h4>
+                    <ul>${item.benefits.map(x => `<li>${escapeHTML(x)}</li>`).join("")}</ul>
+                </div>
+
+                <div class="detail-block">
+                    <h4>Documents / Requirements</h4>
+                    <ul>${item.documents.map(x => `<li>${escapeHTML(x)}</li>`).join("")}</ul>
+                </div>
+
+                <div class="detail-block">
+                    <h4>Deadline</h4>
+                    <p>${escapeHTML(item.deadline)}</p>
+                </div>
+
+                <div class="detail-block">
+                    <h4>Source</h4>
+                    <p>${escapeHTML(item.source)}</p>
+                </div>
+            `;
+
+            const source = document.getElementById("detailSource");
+            source.href = item.url;
+            source.textContent = "Visit " + item.source + " ↗";
+
+            document.getElementById("detailModal").classList.add("show");
+        }
+
+
+        function closeModal(id) {
+            document.getElementById(id).classList.remove("show");
+        }
+
+
+        function closeModalOnBackdrop(event, id) {
+            if (event.target.id === id) {
+                closeModal(id);
+            }
+        }
+
+
+        /* DEMO LOGIN */
+
+        function openLogin() {
+            document.getElementById("loginModal").classList.add("show");
+        }
+
+
+        function loginUser() {
+            alert("Login is a preview only. Authentication has not been connected yet.");
+            closeModal("loginModal");
+        }
+
+
+        /* PERSONALIZED OPPORTUNITY MATCHING */
+
+        document.getElementById("profileForm").addEventListener("submit", event => {
+            event.preventDefault();
+
+            const profile = {
+                name: document.getElementById("profileName").value.trim(),
+                age: Number(document.getElementById("profileAge").value),
+                gender: document.getElementById("profileGender").value,
+                qualification: document.getElementById("profileQualification").value,
+                percentage: Number(document.getElementById("profilePercentage").value || 0),
+                state: document.getElementById("profileState").value.trim(),
+                income: Number(document.getElementById("profileIncome").value || 0),
+                occupation: document.getElementById("profileOccupation").value,
+                sector: document.getElementById("profilePreferredSector").value,
+                category: document.getElementById("profileCategory").value,
+                goal: document.getElementById("profileGoal").value,
+                interests: document.getElementById("profileInterests").value.toLowerCase()
+            };
+
+            let matches = opportunities.map(item => {
+                let score = 30;
+
+                if (profile.sector === "All" || item.sector === profile.sector) {
+                    score += 20;
+                } else {
+                    score -= 20;
+                }
+
+                if (profile.goal === "All" ||
+                    item.category === profile.goal ||
+                    item.tags.includes(profile.goal)) {
+                    score += 25;
+                }
+
+                if (item.qualifications.includes(profile.qualification)) {
+                    score += 15;
+                }
+
+                if (profile.percentage >= 75) {
+                    score += 5;
+                }
+
+                const combined = (
+                    item.title + " " +
+                    item.description + " " +
+                    item.category + " " +
+                    item.tags.join(" ")
+                ).toLowerCase();
+
+                const interestWords = profile.interests
+                    .split(",")
+                    .map(x => x.trim())
+                    .filter(Boolean);
+
+                if (interestWords.some(word => combined.includes(word))) {
+                    score += 10;
+                }
+
+                score = Math.max(0, Math.min(98, score));
+
+                return { ...item, score };
+            });
+
+            matches = matches
+                .filter(item => profile.sector === "All" || item.sector === profile.sector)
+                .filter(item => profile.goal === "All" ||
+                    item.category === profile.goal ||
+                    item.tags.includes(profile.goal) ||
+                    profile.goal === "Financial Support" && item.tags.includes("Financial Support"))
+                .sort((a, b) => b.score - a.score)
+                .slice(0, 8);
+
+            const results = document.getElementById("personalizedResults");
+            const grid = document.getElementById("personalizedGrid");
+            const summary = document.getElementById("personalizedSummary");
+            const status = document.getElementById("profileStatus");
+
+            results.classList.add("show");
+            grid.innerHTML = "";
+
+            summary.textContent = matches.length
+                ? `${matches.length} opportunities ranked using your selected interests, qualification and sector.`
+                : "No exact matches were found. Try selecting all opportunities.";
+
+            status.textContent = `Thanks ${profile.name}. Your profile has been checked against the starter opportunity list.`;
+            status.classList.add("show");
+
+            if (!matches.length) {
+                grid.innerHTML = `
+                    <div class="empty-state">
+                        <h3>No direct matches</h3>
+                        <p>Choose "All opportunities" or adjust your profile to see more results.</p>
+                    </div>`;
+                return;
+            }
+
+            matches.forEach(item => {
+                const card = createOpportunityCard(item);
+                const content = card.querySelector(".scheme-content");
+                const pill = document.createElement("div");
+                pill.className = "match-pill";
+                pill.textContent = item.score + "% profile relevance (indicative)";
+                content.insertBefore(pill, content.querySelector("h3"));
+                grid.appendChild(card);
+            });
+
+            results.scrollIntoView({ behavior: "smooth", block: "start" });
+        });
+
+
+        document.getElementById("clearProfileButton").addEventListener("click", () => {
+            document.getElementById("profileForm").reset();
+            document.getElementById("profileStatus").classList.remove("show");
+            document.getElementById("personalizedResults").classList.remove("show");
+        });
+
+
+        /* LATEST UPDATES
+           This uses official source portal links by default.
+           A live updates feed needs the backend /updates/ endpoint.
+        */
+
+        const defaultNotices = {
+            government: [
+                {
+                    text: "UP Scholarship: Check current application dates and extensions",
+                    url: "https://scholarship.up.gov.in/"
+                },
+                {
+                    text: "NEET UG: Check official exam dates and announcements",
+                    url: "https://neet.nta.nic.in/"
+                },
+                {
+                    text: "Railways: Check recruitment notifications and deadlines",
+                    url: "https://indianrailways.gov.in/"
+                },
+                {
+                    text: "SSC: Check examination schedules and recruitment notices",
+                    url: "https://ssc.gov.in/"
+                }
+            ],
+            private: [
+                {
+                    text: "Private jobs: Check current openings and application dates",
+                    url: "https://www.naukri.com/"
+                },
+                {
+                    text: "Internships: Check new openings and deadlines",
+                    url: "https://internshala.com/internships/"
+                },
+                {
+                    text: "Private scholarships: Check student funding opportunities",
+                    url: "https://www.buddy4study.com/"
+                },
+                {
+                    text: "Company hiring: Check private-sector job listings",
+                    url: "https://www.linkedin.com/jobs/"
+                }
+            ]
+        };
+
+
+        function renderNotices(containerId, notices) {
+            const container = document.getElementById(containerId);
+            container.innerHTML = "";
+
+            if (!notices || notices.length === 0) {
+                container.textContent = "No notices available.";
+                return;
+            }
+
+            notices.forEach(notice => {
+                const row = document.createElement("div");
+                row.className = "notice";
+
+                row.innerHTML = `
+                    <span class="notice-dot" style="background:#0876d1"></span>
+                    <div class="notice-content">
+                        <p title="${escapeHTML(notice.text || notice.title || "")}">
+                            ${escapeHTML(notice.text || notice.title || "Open source notice")}
+                        </p>
+                    </div>
+                    <a class="notice-link" href="${safeUrl(notice.url || notice.official_url)}"
+                       target="_blank" rel="noopener noreferrer">Open ↗</a>
+                `;
+
+                container.appendChild(row);
+            });
+        }
+
+
+        function safeUrl(value) {
+            try {
+                const url = new URL(value || "https://www.india.gov.in/");
+                return ["https:", "http:"].includes(url.protocol)
+                    ? url.href
+                    : "https://www.india.gov.in/";
+            } catch {
+                return "https://www.india.gov.in/";
+            }
+        }
+
+
+        function renderDefaultNotices() {
+            renderNotices("governmentNotices", defaultNotices.government);
+            renderNotices("privateNotices", defaultNotices.private);
+        }
+
+
+        async function refreshUpdates() {
+            const status = document.getElementById("updatesStatus");
+            const button = document.getElementById("refreshUpdatesButton");
+
+            button.disabled = true;
+            status.textContent = "Checking the update feed…";
+
+            try {
+                const response = await fetch("http://127.0.0.1:8000/updates/", {
+                    method: "GET"
+                });
+
+                if (!response.ok) {
+                    throw new Error("Update endpoint unavailable");
+                }
+
+                const data = await response.json();
+
+                const government = data.government || data.government_updates || [];
+                const privateItems = data.private || data.private_updates || [];
+
+                if (!government.length && !privateItems.length) {
+                    throw new Error("No update lists returned");
+                }
+
+                renderNotices("governmentNotices", government);
+                renderNotices("privateNotices", privateItems);
+
+                status.textContent = "Updates refreshed at " + new Date().toLocaleTimeString();
+                checkForNewNotices([...government, ...privateItems]);
+
+            } catch (error) {
+                status.textContent =
+                    "Showing source portals. Connect the backend update feed for automatic notices.";
+                renderDefaultNotices();
+            } finally {
+                button.disabled = false;
+            }
+        }
+
+
+        document.getElementById("refreshUpdatesButton")
+            .addEventListener("click", refreshUpdates);
+
+
+        /* CHECK FOR NEW ITEMS FROM A CONNECTED FEED */
+
+        function checkForNewNotices(notices) {
+            const key = "oppnexa_known_notices";
+
+            const ids = notices.map(item =>
+                String(item.id || item.url || item.official_url || item.title || item.text || "")
+            );
+
+            let previous = [];
+
+            try {
+                previous = JSON.parse(localStorage.getItem(key) || "[]");
+            } catch {
+                previous = [];
+            }
+
+            const newItems = notices.filter((item, index) => !previous.includes(ids[index]));
+
+            if (previous.length && newItems.length && "Notification" in window &&
+                Notification.permission === "granted") {
+                new Notification("Oppnexa: New updates available", {
+                    body: newItems.length + " new notice(s) were found. Open Oppnexa to check them."
+                });
+            }
+
+            localStorage.setItem(key, JSON.stringify(ids));
+        }
+
+
+        /* BROWSER NOTIFICATIONS */
+
+        document.getElementById("enableNotificationsButton")
+            .addEventListener("click", async () => {
+                const status = document.getElementById("notificationStatus");
+
+                if (!("Notification" in window)) {
+                    status.textContent = "This browser does not support notifications.";
+                    return;
+                }
+
+                const permission = await Notification.requestPermission();
+
+                if (permission === "granted") {
+                    status.textContent = "Browser notifications enabled while this page is open.";
+                    new Notification("Oppnexa notifications enabled", {
+                        body: "We'll notify you when a connected update feed reports new notices."
+                    });
+                } else {
+                    status.textContent = "Notifications were not enabled. You can still open source links to check notices.";
+                }
+            });
+
+
+        /* DATE REMINDERS FROM A LIVE BACKEND FEED */
+
+        function showDeadlineReminders(notices) {
+            const container = document.getElementById("deadlineReminders");
+            const upcoming = [];
+
+            notices.forEach(notice => {
+                if (!notice.deadline) return;
+
+                const deadline = new Date(notice.deadline);
+                if (Number.isNaN(deadline.getTime())) return;
+
+                const daysLeft = Math.ceil(
+                    (deadline.getTime() - Date.now()) / (1000 * 60 * 60 * 24)
+                );
+
+                if (daysLeft >= 0 && daysLeft <= 7) {
+                    upcoming.push({
+                        text: notice.text || notice.title || "Application deadline approaching",
+                        url: notice.url || notice.official_url,
+                        daysLeft
+                    });
+                }
+            });
+
+            if (!upcoming.length) {
+                container.innerHTML = `
+                    <p class="privacy-hint">
+                        No dated deadlines within the next 7 days were returned by the connected update feed.
+                    </p>`;
+                return;
+            }
+
+            container.innerHTML = "";
+
+            upcoming.forEach(item => {
+                const row = document.createElement("div");
+                row.className = "notice";
+
+                const timeText = item.daysLeft === 0
+                    ? "Deadline today"
+                    : item.daysLeft + " day(s) left";
+
+                row.innerHTML = `
+                    <span class="notice-dot" style="background:#f47718"></span>
+                    <div class="notice-content">
+                        <p>${escapeHTML(item.text)} — ${timeText}</p>
+                    </div>
+                    <a class="notice-link" href="${safeUrl(item.url)}"
+                       target="_blank" rel="noopener noreferrer">Open ↗</a>
+                `;
+
+                container.appendChild(row);
+            });
+        }
+
+
+        /* LOCAL UI LANGUAGE SWITCH: ENGLISH + HINDI */
+
+        const translations = {
+            "Home": "होम",
+            "Choose Your Sector": "अपना सेक्टर चुनें",
+            "Categories": "श्रेणियाँ",
+            "Personalized Finder": "अपने लिए अवसर खोजें",
+            "Latest Updates & Notices": "नवीनतम अपडेट और सूचनाएँ",
+            "About Us": "हमारे बारे में",
+            "Login / Register": "लॉगिन / रजिस्टर",
+            "Discover Opportunities": "अवसर खोजें",
+            "Made For You": "आपके लिए",
+            "Choose Sector": "सेक्टर चुनें",
+            "Explore Categories": "श्रेणियाँ देखें",
+            "What Are You Looking For?": "आप क्या खोज रहे हैं?",
+            "Government": "सरकारी",
+            "Private Sector": "निजी क्षेत्र",
+            "Healthcare": "स्वास्थ्य सेवाएँ",
+            "Scholarship": "स्कॉलरशिप",
+            "Railways": "रेलवे",
+            "Government Schemes": "सरकारी योजनाएँ",
+            "Jobs": "नौकरियाँ",
+            "Internships": "इंटर्नशिप",
+            "Financial Support": "वित्तीय सहायता",
+            "Skills & Startups": "स्किल्स और स्टार्टअप",
+            "Find My Matches": "मेरे लिए अवसर खोजें",
+            "Latest Updates": "नवीनतम अपडेट"
+        };
+
+
+        function changeLanguage(language) {
+            currentLanguage = language;
+
+            document.documentElement.lang = language;
+
+            document.querySelectorAll("[data-en][data-hi]").forEach(element => {
+                element.textContent = language === "hi"
+                    ? element.dataset.hi
+                    : element.dataset.en;
+            });
+
+            const input = document.getElementById("searchInput");
+
+            input.placeholder = language === "hi"
+                ? "स्वास्थ्य, शिक्षा, रेलवे, नौकरी या इंटर्नशिप खोजें..."
+                : "Search healthcare, education, railways, jobs, internships...";
+
+            document.getElementById("sectorHint").textContent =
+                language === "hi"
+                    ? (selectedSector === "Government"
+                        ? "सरकारी अवसर चुने गए"
+                        : "निजी क्षेत्र के अवसर चुने गए")
+                    : selectedSector + " opportunities selected";
+
+            document.getElementById("updatesStatus").textContent =
+                language === "hi"
+                    ? "अपडेट के लिए आधिकारिक पोर्टल देखें।"
+                    : "Showing official source portals. Verify dates on the source page.";
+        }
+
+
+        document.getElementById("languageSelect").addEventListener("change", event => {
+            changeLanguage(event.target.value);
+        });
+
+
+        /* ESCAPE DYNAMIC TEXT */
+
+        function escapeHTML(value) {
+            const div = document.createElement("div");
+            div.textContent = value ?? "";
+            return div.innerHTML;
+        }
+
+
+        /* INITIAL PAGE SETUP */
+
+        renderDefaultNotices();
+
+        // Government is selected at the beginning, but the opportunities list
+        // opens only after selecting a category, searching, or clicking "Show All".
+        document.getElementById("sectorHint").textContent =
+            "Government opportunities selected";
+
+    </script>
+
+</body>
+</html>
