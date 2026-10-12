@@ -1700,7 +1700,7 @@
 
             <div class="updates-grid">
 
-                <div class="updates-box">
+                <div class="updates-box" id="governmentNotices"></div>
                     <div class="updates-title">
                         <h3><i class="fa-solid fa-landmark"></i> Government Updates</h3>
                     </div>
@@ -1739,7 +1739,7 @@
                 </div>
 
 
-                <div class="updates-box">
+                <div class="updates-box" id="privateNotices">
                     <div class="updates-title">
                         <h3><i class="fa-solid fa-building"></i> Private Sector Updates</h3>
                     </div>
@@ -1915,7 +1915,7 @@
            These are starter records and source links, not live vacancies.
         ===================================================== */
 
-        const opportunities = [
+        let opportunities = [
             {
                 id: 1,
                 sector: "Government",
@@ -2288,7 +2288,24 @@
             }
         });
 
+       async function loadOpportunitiesFromBackend() {
+    try {
+        const response = await fetch("http://127.0.0.1:8000/opportunities/");
 
+        if (!response.ok) {
+            throw new Error("Failed to load opportunities");
+        }
+
+        const data = await response.json();
+
+        if (Array.isArray(data.opportunities)) {
+            opportunities = data.opportunities;
+            console.log("Backend opportunities loaded:", opportunities.length);
+        }
+    } catch (error) {
+        console.error("Backend connection error:", error);
+    }
+}
         /* OPPORTUNITY RENDERING */
 
         function renderOpportunities() {
@@ -2642,44 +2659,17 @@
                     url: "https://www.linkedin.com/jobs/"
                 }
             ]
-        };
-
-
-        function renderNotices(containerId, notices) {
-            const container = document.getElementById(containerId);
-            container.innerHTML = "";
-
-            if (!notices || notices.length === 0) {
-                container.textContent = "No notices available.";
-                return;
-            }
-
-            notices.forEach(notice => {
-                const row = document.createElement("div");
-                row.className = "notice";
-
-                row.innerHTML = `
-                    <span class="notice-dot" style="background:#0876d1"></span>
-                    <div class="notice-content">
-                        <p title="${escapeHTML(notice.text || notice.title || "")}">
-                            ${escapeHTML(notice.text || notice.title || "Open source notice")}
-                        </p>
-                    </div>
-                    <a class="notice-link" href="${safeUrl(notice.url || notice.official_url)}"
-                       target="_blank" rel="noopener noreferrer">Open ↗</a>
-                `;
-
-                container.appendChild(row);
-            });
         }
-
-
-        function safeUrl(value) {
-            try {
-                const url = new URL(value || "https://www.india.gov.in/");
-                return ["https:", "http:"].includes(url.protocol)
-                    ? url.href
-                    : "https://www.india.gov.in/";
+        
+Uncaught TypeError: Cannot set properties of null (setting 'innerHTML')
+    at renderNotices (frontend.html:2667:33)U
+    at renderDefaultNotices (frontend.html:2707:13)
+    at frontend.html:2946:9
+frontend.html:2983 Live reload enabled.
+frontend.html:1 Tracking Prevention blocked access to storage for https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css.
+frontend.html:1 Tracking Prevention blocked access to storage for https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css.
+frontend.html:1 Tracking Prevention blocked access to storage for https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css.
+frontend.html:1 Tracking Prevention blocked access to storage for https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css.india.gov.in/";
             } catch {
                 return "https://www.india.gov.in/";
             }
@@ -2687,8 +2677,8 @@
 
 
         function renderDefaultNotices() {
-            renderNotices("governmentNotices", defaultNotices.government);
-            renderNotices("privateNotices", defaultNotices.private);
+          //  renderNotices("governmentNotices", defaultNotices.government);
+           // renderNotices("privateNotices", defaultNotices.private);
         }
 
 
@@ -2715,11 +2705,7 @@
 
                 if (!government.length && !privateItems.length) {
                     throw new Error("No update lists returned");
-                }
-
-                renderNotices("governmentNotices", government);
-                renderNotices("privateNotices", privateItems);
-
+              renderNotices(
                 status.textContent = "Updates refreshed at " + new Date().toLocaleTimeString();
                 checkForNewNotices([...government, ...privateItems]);
 
@@ -2727,6 +2713,7 @@
                 status.textContent =
                     "Showing source portals. Connect the backend update feed for automatic notices.";
                 renderDefaultNotices();
+                loadOpportunitiesFromBackend();
             } finally {
                 button.disabled = false;
             }

@@ -4,6 +4,8 @@ from fastapi.middleware.cors import CORSMiddleware
 from database import Base, engine
 
 from routes.users import router as users_router
+from routes.opportunities import router as opportunities_router
+from routes.updates import router as updates_router
 from routes.schemes import router as schemes_router
 from routes.recommendations import (
     router as recommendations_router
@@ -41,6 +43,9 @@ app.add_middleware(
 app.include_router(
     users_router
 )
+app.include_router(opportunities_router)
+
+app.include_router(updates_router)
 
 app.include_router(
     schemes_router
