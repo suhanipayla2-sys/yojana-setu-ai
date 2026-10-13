@@ -2,54 +2,47 @@ from fastapi import APIRouter
 
 router = APIRouter(
     prefix="/updates",
-    tags=["Latest Updates"]
+    tags=["Updates"]
 )
 
-# Sample Government Updates
 GOVERNMENT_UPDATES = [
     {
         "id": 1,
-        "title": "National Scholarship Portal",
-        "text": "Students can check available scholarship schemes.",
-        "source": "National Scholarship Portal",
-        "url": "https://scholarships.gov.in/",
-        "published_at": None,
-        "deadline": None,
-        "is_extension": False
+        "title": "Government Scheme Updates",
+        "description": "Explore government schemes and verify eligibility.",
+        "official_url": "https://www.myscheme.gov.in/",
+        "sector": "government"
     },
     {
         "id": 2,
-        "title": "National Career Service",
-        "text": "Explore government employment opportunities.",
-        "source": "National Career Service",
-        "url": "https://www.ncs.gov.in/",
-        "published_at": None,
-        "deadline": None,
-        "is_extension": False
+        "title": "Scholarship Updates",
+        "description": "Check scholarship announcements and application details.",
+        "official_url": "https://scholarships.gov.in/",
+        "sector": "government"
+    },
+    {
+        "id": 3,
+        "title": "Government Job Updates",
+        "description": "Check official recruitment notifications.",
+        "official_url": "https://ssc.gov.in/",
+        "sector": "government"
     }
 ]
 
-# Sample Private Updates
 PRIVATE_UPDATES = [
     {
-        "id": 3,
-        "title": "Private Job Opportunities",
-        "text": "Explore private-sector career opportunities.",
-        "source": "National Career Service",
-        "url": "https://www.ncs.gov.in/",
-        "published_at": None,
-        "deadline": None,
-        "is_extension": False
+        "id": 4,
+        "title": "Career Opportunities",
+        "description": "Explore job opportunities and career services.",
+        "official_url": "https://www.ncs.gov.in/",
+        "sector": "private"
     },
     {
-        "id": 4,
-        "title": "Skill Development Opportunities",
-        "text": "Explore training and skill development opportunities.",
-        "source": "Skill India Digital",
-        "url": "https://www.skillindiadigital.gov.in/",
-        "published_at": None,
-        "deadline": None,
-        "is_extension": False
+        "id": 5,
+        "title": "Internship Opportunities",
+        "description": "Explore internship and training opportunities.",
+        "official_url": "https://www.ncs.gov.in/",
+        "sector": "private"
     }
 ]
 
@@ -58,5 +51,7 @@ PRIVATE_UPDATES = [
 def get_updates():
     return {
         "government": GOVERNMENT_UPDATES,
-        "private": PRIVATE_UPDATES
+        "private": PRIVATE_UPDATES,
+        "government_updates": GOVERNMENT_UPDATES,
+        "private_updates": PRIVATE_UPDATES
     }

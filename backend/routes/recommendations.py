@@ -1,11 +1,4 @@
-from fastapi import APIRouter, Depends, HTTPException
-from sqlalchemy.orm import Session
-
-from database import get_db
-from models import UserProfile, Scheme
-from schemas import RecommendationRequest
-from services import generate_recommendations
-
+from fastapi import APIRouter, Query
 
 router = APIRouter(
     prefix="/recommendations",
@@ -13,44 +6,55 @@ router = APIRouter(
 )
 
 
-@router.post("/")
+@router.get("/")
 def get_recommendations(
-    request: RecommendationRequest,
-    db: Session = Depends(get_db)
+    age: int = Query(default=18, ge=0, le=120),
+    state: str = Query(default=""),
+    occupation: str = Query(default=""),
+    annual_income: float = Query(default=0, ge=0),
+    category: str = Query(default="All")
 ):
+    recommendations = []
 
-    user = db.query(
-        UserProfile
-    ).filter(
-        UserProfile.id == request.user_id
-    ).first()
+    # Basic demonstration response
+    if age <= 25:
+        recommendations.append({
+            "title": "Government Scholarships",
+            "category": "Education",
+            "description": "Explore scholarships for eligible students.",
+            "official_url": "https://scholarships.gov.in/"
+        })
 
-    if user is None:
+    if occupation.strip().lower() in ["student", "unemployed", "job seeker"]:
+        recommendations.append({
+            "title": "National Career Service",
+            "category": "Jobs",
+            "description": "Explore jobs and career services.",
+            "official_url": "https://www.ncs.gov.in/"
+        })
 
-        raise HTTPException(
-            status_code=404,
-            detail="User profile not found"
-        )
+    if not recommendations:
+        recommendations.append({
+            "title": "Government Scheme Directory",
+            "category": "General",
+            "description": "Explore government schemes and verify eligibility on official portals.",
+            "official_url": "https://www.myscheme.gov.in/"
+        })
 
-    schemes = db.query(
-        Scheme
-    ).all()
-
-    if not schemes:
-
-        return {
-            "user_id": user.id,
-            "total_schemes": 0,
-            "recommendations": []
-        }
-
-    recommendations = generate_recommendations(
-        user,
-        schemes
-    )
+    if category.strip().lower() != "all":
+        recommendations = [
+            item for item in recommendations
+            if item["category"].lower() == category.strip().lower()
+        ]
 
     return {
-        "user_id": user.id,
-        "total_schemes": len(recommendations),
-        "recommendations": recommendations
+        "total": len(recommendations),
+        "profile": {
+            "age": age,
+            "state": state,
+            "occupation": occupation,
+            "annual_income": annual_income
+        },
+        "recommendations": recommendations,
+        "disclaimer": "These are preliminary suggestions, not confirmation of eligibility. Verify scheme rules on official portals."
     }

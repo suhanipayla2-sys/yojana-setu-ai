@@ -1658,133 +1658,88 @@
 
 
     <!-- LATEST UPDATES & NOTICES -->
+     <!-- LATEST UPDATES & NOTICES -->
 
-    <section class="updates-section" id="updates">
-        <div class="container">
+<section class="updates-section" id="updates">
+    <div class="container">
 
-            <div class="section-heading">
-                <h2>Latest Updates & Notices</h2>
-                <p>Short notices with a link to the relevant source.</p>
-            </div>
+        <div class="section-heading">
+            <h2>Latest Updates & Notices</h2>
+            <p>Short notices with a link to the relevant source.</p>
+        </div>
 
-            <div class="notification-panel">
+        <div class="notification-panel">
 
-                <div class="notification-panel-head">
-                    <div>
-                        <h3><i class="fa-solid fa-bell"></i> Deadline Reminders & Alerts</h3>
-                        <p id="notificationStatus">Enable browser notifications to see alerts while this page is open.</p>
-                    </div>
+            <div class="notification-panel-head">
+                <div>
+                    <h3>
+                        <i class="fa-solid fa-bell"></i>
+                        Deadline Reminders & Alerts
+                    </h3>
 
-                    <button class="enable-notifications" id="enableNotificationsButton">
-                        <i class="fa-regular fa-bell"></i>
-                        Enable Notifications
-                    </button>
+                    <p id="notificationStatus">
+                        Enable browser notifications to see alerts while this page is open.
+                    </p>
                 </div>
 
-                <div class="reminder-list" id="deadlineReminders">
-                    <p class="privacy-hint">Deadline alerts will appear when dated notices are available from the update source.</p>
-                </div>
-
-            </div>
-
-            <div class="updates-controls">
-                <span class="updates-status" id="updatesStatus">
-                    Showing official source portals. Verify dates on the source page.
-                </span>
-
-                <button class="refresh-btn" id="refreshUpdatesButton">
-                    <i class="fa-solid fa-rotate"></i>
-                    Refresh Updates
+                <button
+                    class="enable-notifications"
+                    id="enableNotificationsButton"
+                    type="button"
+                >
+                    <i class="fa-regular fa-bell"></i>
+                    Enable Notifications
                 </button>
             </div>
 
-            <div class="updates-grid">
-
-                <div class="updates-box" id="governmentNotices"></div>
-                    <div class="updates-title">
-                        <h3><i class="fa-solid fa-landmark"></i> Government Updates</h3>
-                    </div>
-
-                    <div class="notice">
-                        <span class="notice-dot" style="background:#f47718"></span>
-                        <div class="notice-content">
-                            <p>UP Scholarship: Check current application schedule and date extensions</p>
-                        </div>
-                        <a class="notice-link" href="https://scholarship.up.gov.in/" target="_blank" rel="noopener noreferrer">Open ↗</a>
-                    </div>
-
-                    <div class="notice">
-                        <span class="notice-dot" style="background:#0876d1"></span>
-                        <div class="notice-content">
-                            <p>NEET UG: Check official exam dates and announcements</p>
-                        </div>
-                        <a class="notice-link" href="https://neet.nta.nic.in/" target="_blank" rel="noopener noreferrer">Open ↗</a>
-                    </div>
-
-                    <div class="notice">
-                        <span class="notice-dot" style="background:#159447"></span>
-                        <div class="notice-content">
-                            <p>Railways: Check latest recruitment notifications and deadlines</p>
-                        </div>
-                        <a class="notice-link" href="https://indianrailways.gov.in/" target="_blank" rel="noopener noreferrer">Open ↗</a>
-                    </div>
-
-                    <div class="notice">
-                        <span class="notice-dot" style="background:#714bd0"></span>
-                        <div class="notice-content">
-                            <p>SSC: Check latest examination schedules and recruitment notices</p>
-                        </div>
-                        <a class="notice-link" href="https://ssc.gov.in/" target="_blank" rel="noopener noreferrer">Open ↗</a>
-                    </div>
-                </div>
-
-
-                <div class="updates-box" id="privateNotices">
-                    <div class="updates-title">
-                        <h3><i class="fa-solid fa-building"></i> Private Sector Updates</h3>
-                    </div>
-
-                    <div class="notice">
-                        <span class="notice-dot" style="background:#f47718"></span>
-                        <div class="notice-content">
-                            <p>Private jobs: Check latest openings and application dates</p>
-                        </div>
-                        <a class="notice-link" href="https://www.naukri.com/" target="_blank" rel="noopener noreferrer">Open ↗</a>
-                    </div>
-
-                    <div class="notice">
-                        <span class="notice-dot" style="background:#0876d1"></span>
-                        <div class="notice-content">
-                            <p>Internships: Check new openings and upcoming deadlines</p>
-                        </div>
-                        <a class="notice-link" href="https://internshala.com/internships/" target="_blank" rel="noopener noreferrer">Open ↗</a>
-                    </div>
-
-                    <div class="notice">
-                        <span class="notice-dot" style="background:#159447"></span>
-                        <div class="notice-content">
-                            <p>Private scholarships: Check current student funding opportunities</p>
-                        </div>
-                        <a class="notice-link" href="https://www.buddy4study.com/" target="_blank" rel="noopener noreferrer">Open ↗</a>
-                    </div>
-
-                    <div class="notice">
-                        <span class="notice-dot" style="background:#714bd0"></span>
-                        <div class="notice-content">
-                            <p>Private careers: Check company job listings and hiring updates</p>
-                        </div>
-                        <a class="notice-link" href="https://www.linkedin.com/jobs/" target="_blank" rel="noopener noreferrer">Open ↗</a>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="disclaimer">
-                These links open source portals; they are not verified announcements that a particular date has changed. Automatic live notices need a connected backend update feed.
+            <div class="reminder-list" id="deadlineReminders">
+                <p class="privacy-hint">
+                    Deadline alerts will appear when dated notices are available from the update source.
+                </p>
             </div>
 
         </div>
-    </section>
+
+        <div class="updates-controls">
+
+            <span class="updates-status" id="updatesStatus">
+                Showing official source portals. Verify dates on the source page.
+            </span>
+
+            <button
+                class="refresh-btn"
+                id="refreshUpdatesButton"
+                type="button"
+            >
+                <i class="fa-solid fa-rotate"></i>
+                Refresh Updates
+            </button>
+
+        </div>
+
+      <div class="updates-grid">
+
+    <!-- GOVERNMENT UPDATES -->
+    <div class="updates-box" id="governmentNotices">
+        <div class="updates-title">
+            <h3>Government Updates</h3>
+        </div>
+    </div>
+
+    <!-- PRIVATE SECTOR UPDATES -->
+    <div class="updates-box" id="privateNotices">
+        <div class="updates-title">
+            <h3>Private Sector Updates</h3>
+        </div>
+    </div>
+
+</div>
+        <div class="disclaimer">
+            These links open source portals; they are not verified announcements that a particular date has changed. Automatic live notices need a connected backend update feed.
+        </div>
+
+    </div>
+</section>
 
 
     <!-- ABOUT -->
@@ -2622,6 +2577,8 @@
            A live updates feed needs the backend /updates/ endpoint.
         */
 
+                /* LATEST UPDATES */
+
         const defaultNotices = {
             government: [
                 {
@@ -2641,6 +2598,7 @@
                     url: "https://ssc.gov.in/"
                 }
             ],
+
             private: [
                 {
                     text: "Private jobs: Check current openings and application dates",
@@ -2659,160 +2617,424 @@
                     url: "https://www.linkedin.com/jobs/"
                 }
             ]
-        }
-        
-Uncaught TypeError: Cannot set properties of null (setting 'innerHTML')
-    at renderNotices (frontend.html:2667:33)
-    at renderDefaultNotices (frontend.html:2707:13)
-    at frontend.html:2946:9
-frontend.html:2983 Live reload enabled.
-frontend.html:1 Tracking Prevention blocked access to storage for https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css.
-frontend.html:1 Tracking Prevention blocked access to storage for https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css.
-frontend.html:1 Tracking Prevention blocked access to storage for https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css.
-frontend.html:1 Tracking Prevention blocked access to storage for https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css.india.gov.in/";
+        };
+
+
+        /* SAFE URL HANDLING */
+
+        function safeUrl(value) {
+            const fallback = "https://www.india.gov.in/";
+
+            try {
+                const url = new URL(value || fallback);
+
+                if (url.protocol === "https:" || url.protocol === "http:") {
+                    return url.href;
+                }
+
+                return fallback;
             } catch {
-                return "https://www.india.gov.in/";
+                return fallback;
             }
         }
 
 
-        function renderDefaultNotices() {
-          //  renderNotices("governmentNotices", defaultNotices.government);
-           // renderNotices("privateNotices", defaultNotices.private);
+        /* RENDER NOTICES */
+
+        function renderNotices(containerId, notices) {
+            const container = document.getElementById(containerId);
+
+            // Prevent errors if the HTML element does not exist.
+            if (!container) {
+                console.warn("Notice container not found:", containerId);
+                return;
+            }
+
+            container.innerHTML = "";
+
+            if (!Array.isArray(notices) || notices.length === 0) {
+                container.innerHTML = `
+                    <p class="privacy-hint">
+                        No notices are available right now.
+                        Please check the official source portals.
+                    </p>
+                `;
+                return;
+            }
+
+            notices.forEach(notice => {
+                const row = document.createElement("div");
+                row.className = "notice";
+
+                const text = notice.text ||
+                    notice.title ||
+                    notice.message ||
+                    "Open the official portal to view details.";
+
+                const url = safeUrl(
+                    notice.url ||
+                    notice.official_url ||
+                    notice.source_url
+                );
+
+                row.innerHTML = `
+                    <span class="notice-dot"></span>
+
+                    <div class="notice-content">
+                        <p>${escapeHTML(text)}</p>
+                    </div>
+
+                    <a
+                        class="notice-link"
+                        href="${escapeHTML(url)}"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Open ↗
+                    </a>
+                `;
+
+                container.appendChild(row);
+            });
         }
 
+
+        /* DEFAULT NOTICES */
+
+     function renderDefaultNotices() {
+    renderNotices(
+        "governmentNotices",
+        defaultNotices.government
+    );
+
+    renderNotices(
+        "privateNotices",
+        defaultNotices.private
+    );
+
+    const status = document.getElementById("updatesStatus");
+
+    if (status) {
+        status.textContent =
+            "Official source links are available. Check the portals for the latest announcements and deadlines.";
+    }
+}
+
+
+        /* REFRESH UPDATES FROM FASTAPI */
 
         async function refreshUpdates() {
             const status = document.getElementById("updatesStatus");
             const button = document.getElementById("refreshUpdatesButton");
 
-            button.disabled = true;
-            status.textContent = "Checking the update feed…";
+            if (button) {
+                button.disabled = true;
+            }
+
+            if (status) {
+                status.textContent = "Checking the update feed…";
+            }
 
             try {
-                const response = await fetch("http://127.0.0.1:8000/updates/", {
-                    method: "GET"
-                });
+                const response = await fetch(
+                    "http://127.0.0.1:8000/updates/",
+                    {
+                        method: "GET",
+                        headers: {
+                            "Accept": "application/json"
+                        }
+                    }
+                );
 
                 if (!response.ok) {
-                    throw new Error("Update endpoint unavailable");
+                    throw new Error(
+                        "Updates API returned status " + response.status
+                    );
                 }
 
                 const data = await response.json();
 
-                const government = data.government || data.government_updates || [];
-                const privateItems = data.private || data.private_updates || [];
+                // Support both {government: [], private: []}
+                // and {government_updates: [], private_updates: []}.
+                let government =
+                    data.government ||
+                    data.government_updates ||
+                    [];
 
+                let privateItems =
+                    data.private ||
+                    data.private_updates ||
+                    [];
+
+                // Also support an API that returns a raw array.
+                if (Array.isArray(data)) {
+                    government = data.filter(item =>
+                        String(item.sector || "").toLowerCase() === "government"
+                    );
+
+                    privateItems = data.filter(item =>
+                        String(item.sector || "").toLowerCase() === "private"
+                    );
+                }
+
+                if (!Array.isArray(government)) {
+                    government = [];
+                }
+
+                if (!Array.isArray(privateItems)) {
+                    privateItems = [];
+                }
+
+                // Use the official source portals if the feed is empty.
                 if (!government.length && !privateItems.length) {
-                    throw new Error("No update lists returned");
-              renderNotices(
-                status.textContent = "Updates refreshed at " + new Date().toLocaleTimeString();
-                checkForNewNotices([...government, ...privateItems]);
+                    renderDefaultNotices();
+
+                    if (status) {
+                        status.textContent =
+                            "No live notices returned. Showing official source portals.";
+                    }
+
+                    showDeadlineReminders([]);
+                    return;
+                }
+
+                renderNotices(
+                    "governmentNotices",
+                    government.length
+                        ? government
+                        : defaultNotices.government
+                );
+
+                renderNotices(
+                    "privateNotices",
+                    privateItems.length
+                        ? privateItems
+                        : defaultNotices.private
+                );
+
+                const allNotices = [
+                    ...government,
+                    ...privateItems
+                ];
+
+                showDeadlineReminders(allNotices);
+                checkForNewNotices(allNotices);
+
+                if (status) {
+                    status.textContent =
+                        "Updates refreshed at " +
+                        new Date().toLocaleTimeString();
+                }
 
             } catch (error) {
-                status.textContent =
-                    "Showing source portals. Connect the backend update feed for automatic notices.";
+                console.error("Updates feed error:", error);
+
                 renderDefaultNotices();
-                loadOpportunitiesFromBackend();
+                showDeadlineReminders([]);
+
+                if (status) {
+                    status.textContent =
+                        "Showing official source portals. Live updates are currently unavailable.";
+                }
+
             } finally {
-                button.disabled = false;
+                if (button) {
+                    button.disabled = false;
+                }
             }
         }
 
 
-        document.getElementById("refreshUpdatesButton")
-            .addEventListener("click", refreshUpdates);
+        /* REFRESH BUTTON */
+
+        const refreshButton =
+            document.getElementById("refreshUpdatesButton");
+
+        if (refreshButton) {
+            refreshButton.addEventListener("click", refreshUpdates);
+        }
 
 
-        /* CHECK FOR NEW ITEMS FROM A CONNECTED FEED */
+        /* CHECK FOR NEW NOTICES */
 
         function checkForNewNotices(notices) {
             const key = "oppnexa_known_notices";
 
+            if (!Array.isArray(notices)) {
+                return;
+            }
+
             const ids = notices.map(item =>
-                String(item.id || item.url || item.official_url || item.title || item.text || "")
+                String(
+                    item.id ||
+                    item.url ||
+                    item.official_url ||
+                    item.title ||
+                    item.text ||
+                    ""
+                )
             );
 
             let previous = [];
 
             try {
-                previous = JSON.parse(localStorage.getItem(key) || "[]");
-            } catch {
-                previous = [];
+                previous = JSON.parse(
+                    localStorage.getItem(key) || "[]"
+                );
+
+                if (!Array.isArray(previous)) {
+                    previous = [];
+                }
+            } catch (error) {
+                console.warn("Browser storage is unavailable:", error);
             }
 
-            const newItems = notices.filter((item, index) => !previous.includes(ids[index]));
+            const newItems = notices.filter((item, index) =>
+                !previous.includes(ids[index])
+            );
 
-            if (previous.length && newItems.length && "Notification" in window &&
-                Notification.permission === "granted") {
-                new Notification("Oppnexa: New updates available", {
-                    body: newItems.length + " new notice(s) were found. Open Oppnexa to check them."
-                });
+            try {
+                if (
+                    previous.length > 0 &&
+                    newItems.length > 0 &&
+                    "Notification" in window &&
+                    Notification.permission === "granted"
+                ) {
+                    new Notification(
+                        "Oppnexa: New updates available",
+                        {
+                            body:
+                                newItems.length +
+                                " new notice(s) were found."
+                        }
+                    );
+                }
+            } catch (error) {
+                console.warn("Notification could not be displayed:", error);
             }
 
-            localStorage.setItem(key, JSON.stringify(ids));
+            try {
+                localStorage.setItem(key, JSON.stringify(ids));
+            } catch (error) {
+                console.warn("Could not save notice history:", error);
+            }
         }
 
 
         /* BROWSER NOTIFICATIONS */
 
-        document.getElementById("enableNotificationsButton")
-            .addEventListener("click", async () => {
-                const status = document.getElementById("notificationStatus");
+        const notificationButton =
+            document.getElementById("enableNotificationsButton");
+
+        if (notificationButton) {
+            notificationButton.addEventListener("click", async () => {
+                const status =
+                    document.getElementById("notificationStatus");
 
                 if (!("Notification" in window)) {
-                    status.textContent = "This browser does not support notifications.";
+                    if (status) {
+                        status.textContent =
+                            "This browser does not support notifications.";
+                    }
                     return;
                 }
 
-                const permission = await Notification.requestPermission();
+                try {
+                    const permission =
+                        await Notification.requestPermission();
 
-                if (permission === "granted") {
-                    status.textContent = "Browser notifications enabled while this page is open.";
-                    new Notification("Oppnexa notifications enabled", {
-                        body: "We'll notify you when a connected update feed reports new notices."
-                    });
-                } else {
-                    status.textContent = "Notifications were not enabled. You can still open source links to check notices.";
+                    if (permission === "granted") {
+                        if (status) {
+                            status.textContent =
+                                "Browser notifications enabled while this page is open.";
+                        }
+
+                        new Notification(
+                            "Oppnexa notifications enabled",
+                            {
+                                body:
+                                    "We will notify you when new notices are found."
+                            }
+                        );
+
+                    } else {
+                        if (status) {
+                            status.textContent =
+                                "Notifications were not enabled. You can still check the official source links.";
+                        }
+                    }
+
+                } catch (error) {
+                    console.error("Notification permission error:", error);
+
+                    if (status) {
+                        status.textContent =
+                            "Notifications are unavailable in this browser context.";
+                    }
                 }
             });
+        }
 
- 
-        /* DATE REMINDERS FROM A LIVE BACKEND FEED */
+
+        /* DEADLINE REMINDERS */
 
         function showDeadlineReminders(notices) {
-            const container = document.getElementById("deadlineReminders");
-            if (!container) return;
+            const container =
+                document.getElementById("deadlineReminders");
+
+            if (!container) {
+                return;
+            }
+
             const upcoming = [];
 
-            notices.forEach(notice => {
-                if (!notice.deadline) return;
+            if (Array.isArray(notices)) {
+                notices.forEach(notice => {
+                    if (!notice.deadline) {
+                        return;
+                    }
 
-                const deadline = new Date(notice.deadline);
-                if (Number.isNaN(deadline.getTime())) return;
+                    const deadline = new Date(notice.deadline);
 
-                const daysLeft = Math.ceil(
-                    (deadline.getTime() - Date.now()) / (1000 * 60 * 60 * 24)
-                );
+                    if (Number.isNaN(deadline.getTime())) {
+                        return;
+                    }
 
-                if (daysLeft >= 0 && daysLeft <= 7) {
-                    upcoming.push({
-                        text: notice.text || notice.title || "Application deadline approaching",
-                        url: notice.url || notice.official_url,
-                        daysLeft
-                    });
-                }
-            });
+                    const daysLeft = Math.ceil(
+                        (deadline.getTime() - Date.now()) /
+                        (1000 * 60 * 60 * 24)
+                    );
+
+                    if (daysLeft >= 0 && daysLeft <= 7) {
+                        upcoming.push({
+                            text:
+                                notice.text ||
+                                notice.title ||
+                                notice.message ||
+                                "Application deadline approaching",
+
+                            url: safeUrl(
+                                notice.url ||
+                                notice.official_url
+                            ),
+
+                            daysLeft
+                        });
+                    }
+                });
+            }
+
+            container.innerHTML = "";
 
             if (!upcoming.length) {
                 container.innerHTML = `
                     <p class="privacy-hint">
-                        No dated deadlines within the next 7 days were returned by the connected update feed.
-                    </p>`;
+                        No dated deadlines within the next 7 days
+                        were returned by the connected update feed.
+                    </p>
+                `;
                 return;
             }
-
-            container.innerHTML = "";
 
             upcoming.forEach(item => {
                 const row = document.createElement("div");
@@ -2823,19 +3045,31 @@ frontend.html:1 Tracking Prevention blocked access to storage for https://cdnjs.
                     : item.daysLeft + " day(s) left";
 
                 row.innerHTML = `
-                    <span class="notice-dot" style="background:#f47718"></span>
+                    <span
+                        class="notice-dot"
+                        style="background:#f47718"
+                    ></span>
+
                     <div class="notice-content">
-                        <p>${escapeHTML(item.text)} — ${timeText}</p>
+                        <p>
+                            ${escapeHTML(item.text)}
+                            — ${timeText}
+                        </p>
                     </div>
-                    <a class="notice-link" href="${safeUrl(item.url)}"
-                       target="_blank" rel="noopener noreferrer">Open ↗</a>
+
+                    <a
+                        class="notice-link"
+                        href="${escapeHTML(item.url)}"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Open ↗
+                    </a>
                 `;
 
                 container.appendChild(row);
             });
         }
-
-
         /* LOCAL UI LANGUAGE SWITCH: ENGLISH + HINDI */
 
         const translations = {
