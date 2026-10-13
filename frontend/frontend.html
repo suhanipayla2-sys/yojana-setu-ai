@@ -2662,7 +2662,7 @@
         }
         
 Uncaught TypeError: Cannot set properties of null (setting 'innerHTML')
-    at renderNotices (frontend.html:2667:33)U
+    at renderNotices (frontend.html:2667:33)
     at renderDefaultNotices (frontend.html:2707:13)
     at frontend.html:2946:9
 frontend.html:2983 Live reload enabled.
@@ -2777,11 +2777,12 @@ frontend.html:1 Tracking Prevention blocked access to storage for https://cdnjs.
                 }
             });
 
-
+ 
         /* DATE REMINDERS FROM A LIVE BACKEND FEED */
 
         function showDeadlineReminders(notices) {
             const container = document.getElementById("deadlineReminders");
+            if (!container) return;
             const upcoming = [];
 
             notices.forEach(notice => {
